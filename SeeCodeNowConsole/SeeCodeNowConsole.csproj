@@ -94,9 +94,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SeeSomeCode.log" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="simple.1.xml" />
     <Content Include="simple.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>simple.cs</LastGenOutput>

@@ -7,6 +7,11 @@
     string fileWithPath = this.Host.ResolvePath( "simple.tt" ); //requires hostspecific=true
     string justPath = System.IO.Path.GetDirectoryName( fileWithPath );
 	var doc = new System.Xml.XmlDocument();
+	doc.Load( justPath + "\\" + "simple.1.xml" );
+
+	string xml1 = doc.DocumentElement.GetAttribute("localeIdDefault");
+
+	xml1 = "";
 #>
 namespace SeeCodeNow
 {
