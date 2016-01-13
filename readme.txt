@@ -1,3 +1,5 @@
 - talk is cheap
-- this isn't jepordy
--
+- this isn't jepordy (or a spelling bee)
+- simple.. we use english (c#). what can possibly go wrong there!
+- design at the end and call it refactoring
+- let the team decide

@@ -1,7 +1,7 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="System.Xml" #>
 <#@ assembly name="System.Core" #>
-<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
 <#
     string fileWithPath = this.Host.ResolvePath( "simple.tt" ); //requires hostspecific=true
@@ -9,9 +9,10 @@
 	var doc = new System.Xml.XmlDocument();
 	doc.Load( justPath + "\\" + "simple.1.xml" );
 
-	string xml1 = doc.DocumentElement.GetAttribute("localeIdDefault");
+	string localeIdDefault = doc.DocumentElement.GetAttribute("localeIdDefault");
 
-	xml1 = "";
+    var list = new List<string>();
+    var localeStrings = doc.DocumentElement.SelectNodes("/AppModel/LocaleStrings//LocaleString");
 #>
 namespace SeeCodeNow
 {
@@ -19,5 +20,14 @@ namespace SeeCodeNow
     {
 		// FileWithPath	: <#= fileWithPath #>
 		// JustPath		: <#= justPath #>
+
+<#
+    foreach (System.Xml.XmlElement xn in localeStrings)
+    {
+#>
+		// <#= string.Format( "id: {0} value: {1}", xn.Attributes["id"].Value, xn.Attributes["localeStringId"].Value ) #>
+<#
+    }
+#>
     }
 }

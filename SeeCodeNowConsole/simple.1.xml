@@ -2,40 +2,21 @@
   LOCALE metadata 
 -->
 
-<localeStrings localeIdDefault="us">
+<AppModel>
 
-  <localeString id="100" localeStringId="lockedby">
-    <locale localeId="en-US" localeValue="LockedBy" />
-  </localeString>
-  
-  <localeString id="105" localeStringId="size">
-    <locale localeId="en-US" localeValue="Size" />
-    <locale localeId="FR-FR" localeValue="taille" />
-  </localeString>
-  
-  <localeString id="110" localeStringId="state">
-    <locale localeId="en-US" localeValue="State" />
-    <locale localeId="FR-FR" localeValue="État" />
-  </localeString>
-  
-  <localeString id="115" localeStringId="days-in-status">
-    <locale localeId="en-US" localeValue="DaysIn" />
-  </localeString>
-  
-  <localeString id="120" localeStringId="modified">
-    <locale localeId="en-US" localeValue="Modified" />
-  </localeString>
-  
-  <localeString id="125" localeStringId="version">
-    <locale localeId="en-US" localeValue="Version" />
-  </localeString>
-  
-  <localeString id="130" localeStringId="favorite">
-    <locale localeId="en-US" localeValue="Favorite" />
-    <locale localeId="FR-FR" localeValue="Favori" />
-  </localeString>
-  
-</localeStrings>
+  <LocaleStrings localeIdDefault="us">
+
+    <LocaleString id="100" localeStringId="lockedby">
+      <locale localeId="en-US" localeValue="LockedBy" />
+    </LocaleString>
+
+  </LocaleStrings>
+
+  <ModelElements>
+    <ModelElement elementId="DtoName" validationName="">SampleValue</ModelElement>    
+  </ModelElements>
+
+</AppModel>
 
 
 
