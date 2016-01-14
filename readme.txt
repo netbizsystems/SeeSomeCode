@@ -3,3 +3,4 @@
 - simple.. we use english (c#). what can possibly go wrong there!
 - design at the end and call it refactoring
 - let the team decide
+- vs keyboard shortcuts... ctrl+R+R

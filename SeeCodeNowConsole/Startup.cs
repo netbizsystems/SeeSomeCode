@@ -12,12 +12,17 @@ namespace SeeCodeNow
         {
             HttpConfiguration config = new HttpConfiguration();
 
-            config.MapHttpAttributeRoutes();
+            // see attributes on individual controllers
+            config.MapHttpAttributeRoutes(); 
+            // inject (something) into apicontroller
             config.DependencyResolver = new ResolveApiController();
 
             appBuilder.UseWebApi( config );
         }
 
+        /// <summary>
+        /// ResolveApiController - inject dependency into apicontroller
+        /// </summary>
         public class ResolveApiController : IDependencyResolver
         {
             public IDependencyScope BeginScope()

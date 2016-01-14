@@ -9,7 +9,7 @@ namespace SeeCodeNow
     {
         static void Main()
         {
-            string baseAddress = "http://localhost:9000/";
+            string baseAddress = @"http://localhost:9000/";
 
             using ( WebApp.Start<Startup>( url: baseAddress ) )
             {

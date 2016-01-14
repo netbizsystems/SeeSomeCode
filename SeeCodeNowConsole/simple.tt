@@ -11,23 +11,30 @@
 
 	string localeIdDefault = doc.DocumentElement.GetAttribute("localeIdDefault");
 
-    var list = new List<string>();
-    var localeStrings = doc.DocumentElement.SelectNodes("/AppModel/LocaleStrings//LocaleString");
+    var modelElements = doc.DocumentElement.SelectNodes("/AppModel/ModelElements//ModelElement");
 #>
+using System.Collections.Generic;
+
 namespace SeeCodeNow
 {
-    class Class1
+    public static class FooDictionary
     {
-		// FileWithPath	: <#= fileWithPath #>
-		// JustPath		: <#= justPath #>
-
-<#
-    foreach (System.Xml.XmlElement xn in localeStrings)
+        public static List<Foo> Elements { get; private set; } = new List<Foo>();
+        static FooDictionary()
+        {
+			<#
+    foreach (System.Xml.XmlElement me in modelElements)
     {
 #>
-		// <#= string.Format( "id: {0} value: {1}", xn.Attributes["id"].Value, xn.Attributes["localeStringId"].Value ) #>
+Elements.Add(new Foo() { ElementName = "<#= me.Attributes["elementId"].Value #>", ValidationName = "<#= me.Attributes["validationName"].Value #>" });
 <#
     }
 #>
+        }
+        public class Foo
+        {
+            public string ElementName { get; set; }
+            public string ValidationName { get; set; }
+        }
     }
 }

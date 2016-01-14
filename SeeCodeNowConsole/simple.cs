@@ -1,10 +1,18 @@
-﻿namespace SeeCodeNow
-{
-    class Class1
-    {
-		// FileWithPath	: C:\Users\dan2\Documents\GitHubVisualStudio\SeeSomeCode\SeeCodeNowConsole\simple.tt
-		// JustPath		: C:\Users\dan2\Documents\GitHubVisualStudio\SeeSomeCode\SeeCodeNowConsole
+﻿using System.Collections.Generic;
 
-		// id: 100 value: lockedby
+namespace SeeCodeNow
+{
+    public static class FooDictionary
+    {
+        public static List<Foo> Elements { get; private set; } = new List<Foo>();
+        static FooDictionary()
+        {
+			Elements.Add(new Foo() { ElementName = "FooName", ValidationName = "ValidationA" });
+        }
+        public class Foo
+        {
+            public string ElementName { get; set; }
+            public string ValidationName { get; set; }
+        }
     }
 }

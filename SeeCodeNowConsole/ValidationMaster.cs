@@ -19,24 +19,35 @@ namespace SeeCodeNow
         /// ValidationA - note that each property can have several validation attributes
         /// </summary>
         [Required]
-        [StringLength(100, ErrorMessage = "ValidationA failed")]
+        [StringLength(100, ErrorMessageResourceName = "validation.errors.ValidationA")]
         public static string ValidationA { get; set; }
 
         [StringLength(2)]
-        [RegularExpression(@"(ma|nh|vt)", ErrorMessageResourceName = "validation.errors.validationb")]
+        [RegularExpression(@"(ma|nh|vt)", ErrorMessageResourceName = "validation.errors.ValidationB")]
         public static string ValidationB { get; set; }
 
-        [StringLength(3)]
+        [StringLength(100, ErrorMessageResourceName = "validation.errors.ValidationC")]
         public static string ValidationC { get; set; }
     }
 
-    public class MasterValidationAttribute : ValidationAttribute
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DictionaryElementAttribute : ValidationAttribute
     {
         private string _validationname { get; set; }
 
-        public MasterValidationAttribute( string validationName )
+        /// <summary>
+        /// ElementValidationAttribute - constructor
+        /// </summary>
+        /// <param name="elementName"></param>
+        public DictionaryElementAttribute( string elementName )
         {
-            _validationname = validationName;
+            var el = FooDictionary.Elements.Find(e => e.ElementName == elementName);
+            if (el != null)
+            {
+                _validationname = el.ValidationName;
+            }
         }
         public override bool IsValid( object value )
         {

@@ -13,7 +13,7 @@
   </LocaleStrings>
 
   <ModelElements>
-    <ModelElement elementId="DtoName" validationName="">SampleValue</ModelElement>    
+    <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>    
   </ModelElements>
 
 </AppModel>

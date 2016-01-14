@@ -62,7 +62,7 @@ namespace SeeCodeNow
         {
             public int DtoId { get; set; } = 100;
 
-            [MasterValidation("ValidationA")]
+            [DictionaryElement("FooName")]
             public string DtoName { get; set; } = "onetwothree";
         }
     }
