@@ -3,7 +3,7 @@ using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 
-namespace SeeCodeNow
+namespace SeeSomeCode
 {
     public abstract partial class BaseApiController : ApiController
     {
@@ -29,19 +29,19 @@ namespace SeeCodeNow
         }
 
         [Route("")]
-        public IEnumerable<ValueGetDto> Get()
+        public IEnumerable<GetDTO> Get()
         {
-            return new ValueGetDto[] { new ValueGetDto() };
+            return new GetDTO[] { new GetDTO() };
         }
 
         [Route( "{id}"  )]
-        public ValueGetDto Get( int id )
+        public GetDTO Get( int id )
         {
-            return new ValueGetDto();
+            return new GetDTO();
         }
 
         [Route( "" )]
-        public HttpResponseMessage Post( [FromBody] ValuePostDto postValue )
+        public HttpResponseMessage Post( [FromBody] PostDTO postValue )
         {
             DebugMessage();
 
@@ -52,13 +52,13 @@ namespace SeeCodeNow
             return base.MakeResponse();
         }
 
-        public class ValueGetDto
+        public class GetDTO
         {
             public int DtoId { get; set; } = 100;
             public string DtoName { get; set; } = "onetwothree";
         }
 
-        public class ValuePostDto
+        public class PostDTO
         {
             public int DtoId { get; set; } = 100;
 

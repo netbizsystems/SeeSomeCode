@@ -3,20 +3,20 @@ using Microsoft.Owin.Hosting;
 using System;
 using System.Net.Http;
 
-namespace SeeCodeNow
+namespace SeeSomeCode
 {
-    public class Program
+    public class SeeProgram
     {
         static void Main()
         {
             string baseAddress = @"http://localhost:9000/";
 
-            using ( WebApp.Start<Startup>( url: baseAddress ) )
+            using ( WebApp.Start<SeeStartup>( url: baseAddress ) )
             {
                 System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("starting"));
                 HttpClient client = new HttpClient();
                 var postResponse = client
-                    .PostAsJsonAsync( baseAddress + "api/values", new ValuesController.ValuePostDto() )
+                    .PostAsJsonAsync( baseAddress + "api/values", new ValuesController.PostDTO() )
                     .Result;
 
                 Console.ReadLine();
@@ -29,7 +29,7 @@ namespace SeeCodeNow
     {
         public static string GetMessageText( string text )
         {
-            return string.Format( "Hello {0} at the hour of {1}", text, DateTime.Now.ToShortDateString() );
+            return string.Format("SeeProgram says [{0}] at the hour of [{1}]", text, DateTime.Now.ToShortDateString() );
         }
     }
 }

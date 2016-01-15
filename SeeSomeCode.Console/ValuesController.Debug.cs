@@ -3,7 +3,7 @@ using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 
-namespace SeeCodeNow
+namespace SeeSomeCode
 {
     public partial class ValuesController : BaseApiController
     {
@@ -17,7 +17,7 @@ namespace SeeCodeNow
         /// </summary>
         partial void DebugMessage()
         {
-            System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("TomTom"));
+            System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("debug message"));
         }
     }
 #endif

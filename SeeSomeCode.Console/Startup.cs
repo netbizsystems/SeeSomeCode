@@ -4,9 +4,9 @@ using System.Web.Http.Dependencies;
 using System;
 using System.Collections.Generic;
 
-namespace SeeCodeNow
+namespace SeeSomeCode
 {
-    public class Startup
+    public class SeeStartup
     {
         public void Configuration( IAppBuilder appBuilder )
         {

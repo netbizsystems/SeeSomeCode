@@ -15,23 +15,23 @@
 #>
 using System.Collections.Generic;
 
-namespace SeeCodeNow
+namespace SeeSomeCode
 {
-    public static class FooDictionary
+    public static class ElementDictionary
     {
-        public static List<Foo> Elements { get; private set; } = new List<Foo>();
-        static FooDictionary()
+        public static List<DictionaryElement> Elements { get; private set; } = new List<DictionaryElement>();
+        static ElementDictionary()
         {
 			<#
     foreach (System.Xml.XmlElement me in modelElements)
     {
 #>
-Elements.Add(new Foo() { ElementName = "<#= me.Attributes["elementId"].Value #>", ValidationName = "<#= me.Attributes["validationName"].Value #>" });
+Elements.Add(new DictionaryElement() { ElementName = "<#= me.Attributes["elementId"].Value #>", ValidationName = "<#= me.Attributes["validationName"].Value #>" });
 <#
     }
 #>
         }
-        public class Foo
+        public class DictionaryElement
         {
             public string ElementName { get; set; }
             public string ValidationName { get; set; }

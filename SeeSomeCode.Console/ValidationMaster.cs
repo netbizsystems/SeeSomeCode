@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace SeeCodeNow
+namespace SeeSomeCode
 {
     /// <summary>
     /// ValidationMaster - global repository of ALL useful validation patterns
@@ -43,7 +43,7 @@ namespace SeeCodeNow
         /// <param name="elementName"></param>
         public DictionaryElementAttribute( string elementName )
         {
-            var el = FooDictionary.Elements.Find(e => e.ElementName == elementName);
+            var el = ElementDictionary.Elements.Find(e => e.ElementName == elementName);
             if (el != null)
             {
                 _validationname = el.ValidationName;
@@ -51,6 +51,7 @@ namespace SeeCodeNow
         }
         public override bool IsValid( object value )
         {
+            System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("validating..."));
             return ValidateAgainstMaster(value);
         }
 
