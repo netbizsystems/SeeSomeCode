@@ -31,19 +31,23 @@ namespace SeeSomeCode
         [Route("")]
         public IEnumerable<GetDTO> Get()
         {
+            DebugMessage("handling get request");
+
             return new GetDTO[] { new GetDTO() };
         }
 
         [Route( "{id}"  )]
         public GetDTO Get( int id )
         {
+            DebugMessage(string.Format( "handling get request for [{0}]", id ));
+
             return new GetDTO();
         }
 
         [Route( "" )]
         public HttpResponseMessage Post( [FromBody] PostDTO postValue )
         {
-            DebugMessage();
+            DebugMessage("handling post request");
 
             if( ModelState.IsValid )
             {
@@ -60,6 +64,7 @@ namespace SeeSomeCode
 
         public class PostDTO
         {
+            [DictionaryElement("DtoId")]
             public int DtoId { get; set; } = 100;
 
             [DictionaryElement("FooName")]

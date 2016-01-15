@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-using System.Net.Http;
-using System.Net;
+﻿
+using System.Diagnostics;
 
 namespace SeeSomeCode
 {
@@ -10,14 +8,15 @@ namespace SeeSomeCode
         /// <summary>
         /// DebugMessage - will not generate any bits in the assembly
         /// </summary>
-        partial void DebugMessage();
+        partial void DebugMessage(string debugMessage);
+
 #if DEBUG
         /// <summary>
         /// DebugMessage - in debug mode it will generate those bits
         /// </summary>
-        partial void DebugMessage()
+        partial void DebugMessage(string debugMessage)
         {
-            System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("debug message"));
+            Trace.TraceInformation(TraceMessage.GetMessageText( debugMessage ));
         }
     }
 #endif

@@ -1,0 +1,47 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+    string fileWithPath = this.Host.ResolvePath( "SeeModel.xml" ); //requires hostspecific=true
+    string justPath = System.IO.Path.GetDirectoryName( fileWithPath );
+	var doc = new System.Xml.XmlDocument();
+	doc.Load( justPath + "\\" + "SeeModel.xml" );
+
+	string localeIdDefault = doc.DocumentElement.GetAttribute("modelName");
+    var modelElements = doc.DocumentElement.SelectNodes("/AppModel/ModelElements//ModelElement");
+
+	// The template below will generate a class that exposes elements found in the xml as entries
+	// in a list.. this will make the xml metadata eaiser to work with at runtime. In another attempt
+	// at this I load XML into a SQL Server table rather than generating a class. That table has a view
+	// that makes the metadata very useful with entityframework and some wrapper classes that I built.
+	//
+	// Other .tt files will generate other important source assets from the same XML file. You will 
+	// see that when I get my SeeSomeCode.js up on GitHub!
+#>
+using System.Collections.Generic;
+// GENERATED CODE - SEE SEEMODEL.1.TT FOR DISCUSSION
+namespace SeeSomeCode
+{
+    public static class ElementDictionary
+    {
+        public static List<DictionaryElement> Elements { get; private set; } = new List<DictionaryElement>();
+        static ElementDictionary()
+        {
+<#
+    foreach (System.Xml.XmlElement me in modelElements)
+    {
+#>
+			Elements.Add(new DictionaryElement() { ElementName = "<#= me.Attributes["elementId"].Value #>", ValidationName = "<#= me.Attributes["validationName"].Value #>" });
+<#
+    }
+#>
+        }
+        public class DictionaryElement
+        {
+            public string ElementName { get; set; }
+            public string ValidationName { get; set; }
+        }
+    }
+}

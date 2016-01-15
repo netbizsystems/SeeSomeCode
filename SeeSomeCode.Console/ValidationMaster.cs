@@ -18,8 +18,8 @@ namespace SeeSomeCode
         /// <summary>
         /// ValidationA - note that each property can have several validation attributes
         /// </summary>
-        [Required]
-        [StringLength(100, ErrorMessageResourceName = "validation.errors.ValidationA")]
+        [MinLength(1, ErrorMessageResourceName = "validation.errors.ValidationA")]
+        [MaxLength(100, ErrorMessageResourceName = "validation.errors.ValidationA")]
         public static string ValidationA { get; set; }
 
         [StringLength(2)]
@@ -28,6 +28,9 @@ namespace SeeSomeCode
 
         [StringLength(100, ErrorMessageResourceName = "validation.errors.ValidationC")]
         public static string ValidationC { get; set; }
+
+        [Range(1,100, ErrorMessageResourceName = "validation.errors.ValidationD")]
+        public static int ValidationD { get; set; }
     }
 
     /// <summary>
@@ -35,7 +38,8 @@ namespace SeeSomeCode
     /// </summary>
     public class DictionaryElementAttribute : ValidationAttribute
     {
-        private string _validationname { get; set; }
+        private string _validationName { get; set; }
+        private string _elementName { get; set; }
 
         /// <summary>
         /// ElementValidationAttribute - constructor
@@ -43,15 +47,15 @@ namespace SeeSomeCode
         /// <param name="elementName"></param>
         public DictionaryElementAttribute( string elementName )
         {
+            _elementName = elementName;
             var el = ElementDictionary.Elements.Find(e => e.ElementName == elementName);
             if (el != null)
             {
-                _validationname = el.ValidationName;
+                _validationName = el.ValidationName;
             }
         }
         public override bool IsValid( object value )
         {
-            System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("validating..."));
             return ValidateAgainstMaster(value);
         }
 
@@ -60,11 +64,14 @@ namespace SeeSomeCode
             var property = typeof(ValidationMaster)
                 .GetMembers()
                 .Where( prop => IsDefined( prop, typeof( ValidationAttribute )) )
-                .Where( prop => prop.Name == _validationname )
+                .Where( prop => prop.Name == _validationName )
                 .FirstOrDefault();
 
             foreach ( ValidationAttribute va in property.GetCustomAttributes( typeof(ValidationAttribute), true ) )
             {
+                var messageText = string.Format("validating element [{0}] aginst validation [{1}] attribute [{2}]", _elementName, _validationName, va.ToString());
+                System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText(messageText));
+
                 if (!va.IsValid(value))
                 {
                     return false;

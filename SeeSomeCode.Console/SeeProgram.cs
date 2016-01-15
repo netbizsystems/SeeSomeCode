@@ -27,9 +27,12 @@ namespace SeeSomeCode
 
     public class TraceMessage
     {
-        public static string GetMessageText( string text )
+        public static string GetMessageText( string messageText )
         {
-            return string.Format("SeeProgram says [{0}] at the hour of [{1}]", text, DateTime.Now.ToShortDateString() );
+            return string.Format("[{0}] - [{1}] -- {2}"
+                , DateTime.Now.ToShortDateString()
+                , DateTime.Now.ToLongTimeString()
+                , messageText );
         }
     }
 }
