@@ -1,0 +1,20 @@
+﻿<!--
+  LOCALE metadata 
+-->
+
+<AppModel modelName="SeeSomeCode">
+
+  <LocaleStrings localeIdDefault="us">
+
+    <LocaleString id="100" localeStringId="lockedby">
+      <locale localeId="en-US" localeValue="LockedBy" />
+    </LocaleString>
+
+  </LocaleStrings>
+
+  <ModelElements>
+    <ModelElement elementId="DtoId" validationName="ValidationD">SampleValue</ModelElement>
+    <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>    
+  </ModelElements>
+
+</AppModel>
