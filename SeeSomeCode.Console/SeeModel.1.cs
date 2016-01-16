@@ -2,13 +2,16 @@
 // GENERATED CODE - SEE SEEMODEL.1.TT FOR DISCUSSION
 namespace SeeSomeCode
 {
+    /// <summary>
+    /// ElementDictionary - provides global list of elements to validations maping
+    /// </summary>
     public static class ElementDictionary
     {
         public static List<DictionaryElement> Elements { get; private set; } = new List<DictionaryElement>();
         static ElementDictionary()
         {
-			Elements.Add(new DictionaryElement() { ElementName = "FooName", ValidationName = "ValidationA" });
 			Elements.Add(new DictionaryElement() { ElementName = "DtoId", ValidationName = "ValidationD" });
+			Elements.Add(new DictionaryElement() { ElementName = "FooName", ValidationName = "ValidationA" });
         }
         public class DictionaryElement
         {

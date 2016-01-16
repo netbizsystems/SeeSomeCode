@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
@@ -34,7 +35,7 @@ namespace SeeSomeCode
     }
 
     /// <summary>
-    /// 
+    /// DictionaryElementAttribute - validate element against validation set
     /// </summary>
     public class DictionaryElementAttribute : ValidationAttribute
     {
@@ -48,18 +49,22 @@ namespace SeeSomeCode
         public DictionaryElementAttribute( string elementName )
         {
             _elementName = elementName;
-            var el = ElementDictionary.Elements.Find(e => e.ElementName == elementName);
+            var el = ElementDictionary.Elements.Find( e => e.ElementName == elementName );
             if (el != null)
             {
                 _validationName = el.ValidationName;
             }
+            else
+            {
+                throw new ApplicationException( $"element [{elementName}] not found in elementDictionary" );
+            }
         }
         public override bool IsValid( object value )
         {
-            return ValidateAgainstMaster(value);
+            return ValidateAgainstMaster( value );
         }
 
-        private bool ValidateAgainstMaster(object value)
+        private bool ValidateAgainstMaster( object value )
         {
             var property = typeof(ValidationMaster)
                 .GetMembers()
@@ -67,16 +72,18 @@ namespace SeeSomeCode
                 .Where( prop => prop.Name == _validationName )
                 .FirstOrDefault();
 
-            foreach ( ValidationAttribute va in property.GetCustomAttributes( typeof(ValidationAttribute), true ) )
-            {
-                var messageText = string.Format("validating element [{0}] aginst validation [{1}] attribute [{2}]", _elementName, _validationName, va.ToString());
-                System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText(messageText));
-
-                if (!va.IsValid(value))
+            if (property != null)
+                foreach ( ValidationAttribute va in property.GetCustomAttributes( typeof(ValidationAttribute), true ) )
                 {
-                    return false;
+                    var messageText = $"validating element [{_elementName}] aginst validation [{_validationName}] attribute [{va.ToString()}]";
+                    System.Diagnostics.Trace.TraceInformation( TraceMessage.GetMessageText( messageText ) );
+
+                    if (!va.IsValid( value ))
+                    {
+                        return false;
+                    }
                 }
-            };
+            ;
 
             return true; // all is well
         }

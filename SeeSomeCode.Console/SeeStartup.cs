@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace SeeSomeCode
 {
+    /// <summary>
+    /// SeeStartup - setup owin application 
+    /// </summary>
     public class SeeStartup
     {
         public void Configuration( IAppBuilder appBuilder )
@@ -14,6 +17,7 @@ namespace SeeSomeCode
 
             // see attributes on individual controllers
             config.MapHttpAttributeRoutes(); 
+
             // inject (something) into apicontroller
             config.DependencyResolver = new ResolveApiController();
 

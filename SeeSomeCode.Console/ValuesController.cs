@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Http;
 using System.Net.Http;
 using System.Net;
+using System.Runtime.CompilerServices;
 
 namespace SeeSomeCode
 {
@@ -23,6 +25,10 @@ namespace SeeSomeCode
     [RoutePrefix( "api/values" )]
     public partial class ValuesController : BaseApiController
     {
+        /// <summary>
+        /// ValuesController - constructor with DI parameter
+        /// </summary>
+        /// <param name="notUsed"></param>
         public ValuesController(int notUsed)
         {
             return;
@@ -64,10 +70,10 @@ namespace SeeSomeCode
 
         public class PostDTO
         {
-            [DictionaryElement("DtoId")]
+            [Required] [DictionaryElement("DtoId")]
             public int DtoId { get; set; } = 100;
 
-            [DictionaryElement("FooName")]
+            [Required] [DictionaryElement("FooName")]
             public string DtoName { get; set; } = "onetwothree";
         }
     }

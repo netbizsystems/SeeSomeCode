@@ -7,8 +7,8 @@
     <ProjectGuid>{6B314E94-246F-4C0A-B061-973B11F7CC63}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SeeCodeNow</RootNamespace>
-    <AssemblyName>SeeCodeNow</AssemblyName>
+    <RootNamespace>SeeSomeCode</RootNamespace>
+    <AssemblyName>SeeSomeCode</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -93,7 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+    <None Include="SeeSomeCode.log" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SeeModel.xml" />
