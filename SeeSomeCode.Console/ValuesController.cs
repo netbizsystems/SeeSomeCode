@@ -3,36 +3,54 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Http;
 using System.Net.Http;
 using System.Net;
-using System.Runtime.CompilerServices;
 
 namespace SeeSomeCode
 {
-    public abstract partial class BaseApiController : ApiController
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract partial class BaseApiController<T> : ApiController where T : SeeBusinessLogic
     {
-        public BaseApiController() { /* parmless not allowed */ }
+        protected T BizLogic { get; private set; }
 
+        private BaseApiController() { /* parmless not allowed */ }
+
+        /// <summary>
+        /// BaseApiController
+        /// </summary>
+        /// <param name="bizLogic"></param>
+        public BaseApiController( T bizLogic )
+        {
+            BizLogic = bizLogic;
+        }
+
+        /// <summary>
+        /// HttpResponseMessage
+        /// </summary>
+        /// <returns></returns>
         protected HttpResponseMessage MakeResponse()
         {
             var hrm = new HttpResponseMessage( ModelState.IsValid ? HttpStatusCode.Accepted : HttpStatusCode.InternalServerError )
             {
-                ReasonPhrase = "hello tom"
+                ReasonPhrase = ModelState.IsValid ? "valid" : "not valid"
             };
 
             return hrm;
         }
     }
 
-    [RoutePrefix( "api/values" )]
-    public partial class ValuesController : BaseApiController
+    /// <summary>
+    /// 
+    /// </summary>
+    [RoutePrefix("api/values")]
+    public partial class ValuesController : BaseApiController<SeeBusinessLogic>
     {
         /// <summary>
         /// ValuesController - constructor with DI parameter
         /// </summary>
-        /// <param name="notUsed"></param>
-        public ValuesController(int notUsed)
-        {
-            return;
-        }
+        /// <param name="bizLogic"></param>
+        public ValuesController( SeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
         [Route("")]
         public IEnumerable<GetDTO> Get()
@@ -42,7 +60,7 @@ namespace SeeSomeCode
             return new GetDTO[] { new GetDTO() };
         }
 
-        [Route( "{id}"  )]
+        [Route("{id}")]
         public GetDTO Get( int id )
         {
             DebugMessage(string.Format( "handling get request for [{0}]", id ));
@@ -50,7 +68,7 @@ namespace SeeSomeCode
             return new GetDTO();
         }
 
-        [Route( "" )]
+        [Route("")]
         public HttpResponseMessage Post( [FromBody] PostDTO postValue )
         {
             DebugMessage("handling post request");

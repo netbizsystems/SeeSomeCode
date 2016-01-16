@@ -2,6 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 
 namespace SeeSomeCode
@@ -41,9 +42,9 @@ namespace SeeSomeCode
 
             public object GetService(Type serviceType)
             {
-                if (serviceType.BaseType == typeof(BaseApiController))
+                if (serviceType.BaseType != null && serviceType.BaseType.IsGenericType)
                 {
-                    return Activator.CreateInstance(serviceType, 123);
+                    return Activator.CreateInstance( serviceType, new SeeBusinessLogic() );
                 }
                 return null;
             }
@@ -53,5 +54,10 @@ namespace SeeSomeCode
                 return new List<object>();
             }
         }
+    }
+
+    public class SeeBusinessLogic
+    {
+        public SeeBusinessLogic() { }
     }
 }
