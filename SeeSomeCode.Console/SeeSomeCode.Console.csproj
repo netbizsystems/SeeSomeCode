@@ -95,7 +95,7 @@
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
-    <None Include="SeeSomeCode.log" />
+    <None Include="SeeSomeCode.trace" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SeeModel.xml" />

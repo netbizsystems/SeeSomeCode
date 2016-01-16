@@ -1,0 +1,7 @@
+
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:03 AM] -- starting
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- validating element [DtoId] aginst validation [ValidationD] attribute [System.ComponentModel.DataAnnotations.RangeAttribute]
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- validating element [FooName] aginst validation [ValidationA] attribute [System.ComponentModel.DataAnnotations.MinLengthAttribute]
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- validating element [FooName] aginst validation [ValidationA] attribute [System.ComponentModel.DataAnnotations.MaxLengthAttribute]
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- handling post request
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:33 AM] -- ending
