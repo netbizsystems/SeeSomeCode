@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SeeBusinessLogic.cs" />
     <Compile Include="SeeProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeeModel.1.cs">

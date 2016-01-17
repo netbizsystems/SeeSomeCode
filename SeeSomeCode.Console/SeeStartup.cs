@@ -4,7 +4,6 @@ using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace SeeSomeCode
 {
@@ -35,7 +34,6 @@ namespace SeeSomeCode
             {
                 if (serviceType.BaseType != null && serviceType.BaseType.IsGenericType)
                 {
-
                     return Activator.CreateInstance( serviceType, new SeeBusinessLogic() );
                 }
                 return null;
@@ -47,28 +45,6 @@ namespace SeeSomeCode
             public IEnumerable<object> GetServices(Type serviceType) { return new List<object>(); } 
             #endregion
         }
-    }
-
-    /// <summary>
-    /// SeeBusinessLogic - for DI into ApiController
-    /// </summary>
-    public class SeeBusinessLogic : ISeeBusinessLogic
-    {
-        public string SeeProperty { get; set; } = "see ?";
-        public SeeBusinessLogic() { }
-        public void DoSomething()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    /// <summary>
-    /// ISeeBusinessLogic
-    /// </summary>
-    public interface ISeeBusinessLogic
-    {
-        void DoSomething();
-        string SeeProperty { get; set; }
     }
 
 }

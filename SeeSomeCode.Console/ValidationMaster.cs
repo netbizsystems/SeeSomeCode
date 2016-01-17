@@ -39,8 +39,8 @@ namespace SeeSomeCode
     /// </summary>
     public class DictionaryElementAttribute : ValidationAttribute
     {
-        private string _validationName { get; set; }
-        private string _elementName { get; set; }
+        private string ValidationName { get; set; }
+        private string ElementName { get; set; }
 
         /// <summary>
         /// ElementValidationAttribute - constructor
@@ -48,11 +48,11 @@ namespace SeeSomeCode
         /// <param name="elementName"></param>
         public DictionaryElementAttribute( string elementName )
         {
-            _elementName = elementName;
+            ElementName = elementName;
             var el = ElementDictionary.Elements.Find( e => e.ElementName == elementName );
             if (el != null)
             {
-                _validationName = el.ValidationName;
+                ValidationName = el.ValidationName;
             }
             else
             {
@@ -69,13 +69,13 @@ namespace SeeSomeCode
             var property = typeof(ValidationMaster)
                 .GetMembers()
                 .Where( prop => IsDefined( prop, typeof( ValidationAttribute )) )
-                .Where( prop => prop.Name == _validationName )
+                .Where( prop => prop.Name == ValidationName )
                 .FirstOrDefault();
 
             if (property != null)
                 foreach ( ValidationAttribute va in property.GetCustomAttributes( typeof(ValidationAttribute), true ) )
                 {
-                    var messageText = $"validating element [{_elementName}] aginst validation [{_validationName}] attribute [{va.ToString()}]";
+                    var messageText = $"validating element [{ElementName}] aginst validation [{ValidationName}] attribute [{va.ToString()}]";
                     System.Diagnostics.Trace.TraceInformation( TraceMessage.GetMessageText( messageText ) );
 
                     if (!va.IsValid( value ))
