@@ -1,9 +1,10 @@
-﻿using Owin;
+﻿
+using Owin;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SeeSomeCode
 {
@@ -30,34 +31,44 @@ namespace SeeSomeCode
         /// </summary>
         public class ResolveApiController : IDependencyResolver
         {
-            public IDependencyScope BeginScope()
-            {
-                return this;
-            }
-
-            public void Dispose()
-            {
-                return;
-            }
-
             public object GetService(Type serviceType)
             {
                 if (serviceType.BaseType != null && serviceType.BaseType.IsGenericType)
                 {
+
                     return Activator.CreateInstance( serviceType, new SeeBusinessLogic() );
                 }
                 return null;
             }
 
-            public IEnumerable<object> GetServices(Type serviceType)
-            {
-                return new List<object>();
-            }
+            #region nothing to see here
+            public IDependencyScope BeginScope() { return this; }
+            public void Dispose() { return; }
+            public IEnumerable<object> GetServices(Type serviceType) { return new List<object>(); } 
+            #endregion
         }
     }
 
-    public class SeeBusinessLogic
+    /// <summary>
+    /// SeeBusinessLogic - for DI into ApiController
+    /// </summary>
+    public class SeeBusinessLogic : ISeeBusinessLogic
     {
+        public string SeeProperty { get; set; } = "see ?";
         public SeeBusinessLogic() { }
+        public void DoSomething()
+        {
+            throw new NotImplementedException();
+        }
     }
+
+    /// <summary>
+    /// ISeeBusinessLogic
+    /// </summary>
+    public interface ISeeBusinessLogic
+    {
+        void DoSomething();
+        string SeeProperty { get; set; }
+    }
+
 }

@@ -15,8 +15,8 @@
     <AppSetting settingId="issueLoggerResource" settingValue="issue" isNeededByClient="true"/>
   </AppSettings>
   
-  <LocaleStrings languageCodeDefault="us">
-    <LocalizedStrings id="Foo.FooName" localeStringId="lockedby">
+  <LocaleStrings languageCodeDefault="en-us">
+    <LocalizedStrings id="Foo.FooName">
       <LocalizedString languageCode="en-us" localizedValue="see some code" />
       <LocalizedString languageCode="fr-ca" localizedValue="voir des code" />
     </LocalizedStrings>

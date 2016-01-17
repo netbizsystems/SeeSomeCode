@@ -3,7 +3,7 @@
 namespace SeeSomeCode
 {
     /// <summary>
-    /// ElementDictionary - provides global list of elements to validations maping
+    /// ElementDictionary - provides global list of elements => validation mapping
     /// </summary>
     public static class ElementDictionary
     {

@@ -7,10 +7,10 @@ using System.Net;
 namespace SeeSomeCode
 {
     /// <summary>
-    /// 
+    /// BaseApiController - provide consistent access to biz from api controller(s)
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract partial class BaseApiController<T> : ApiController where T : SeeBusinessLogic
+    public abstract partial class BaseApiController<T> : ApiController where T : ISeeBusinessLogic
     {
         protected T BizLogic { get; private set; }
 
@@ -23,6 +23,11 @@ namespace SeeSomeCode
         public BaseApiController( T bizLogic )
         {
             BizLogic = bizLogic;
+            try
+            {
+                BizLogic.DoSomething();
+            }
+            catch { /* eat it for this demo */ }
         }
 
         /// <summary>
@@ -44,13 +49,13 @@ namespace SeeSomeCode
     /// 
     /// </summary>
     [RoutePrefix("api/values")]
-    public partial class ValuesController : BaseApiController<SeeBusinessLogic>
+    public partial class ValuesController : BaseApiController<ISeeBusinessLogic>
     {
         /// <summary>
         /// ValuesController - constructor with DI parameter
         /// </summary>
         /// <param name="bizLogic"></param>
-        public ValuesController( SeeBusinessLogic bizLogic ) : base( bizLogic ) { }
+        public ValuesController( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
         [Route("")]
         public IEnumerable<GetDTO> Get()
@@ -75,7 +80,11 @@ namespace SeeSomeCode
 
             if( ModelState.IsValid )
             {
-                // do something
+                try
+                {
+                    BizLogic.DoSomething();
+                }
+                catch { /* eat it for this demo */ }
             }
             return base.MakeResponse();
         }
