@@ -96,7 +96,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SeeModel.xml" />
     <Content Include="SeeModel.1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SeeModel.1.cs</LastGenOutput>
