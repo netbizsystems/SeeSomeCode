@@ -1,32 +1,61 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 
 namespace SeeSomeCode
 {
-    public abstract partial class BaseApiController : ApiController
+    /// <summary>
+    /// BaseApiController - provide consistent access to biz from api controller(s)
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract partial class BaseApiController<T> : ApiController where T : ISeeBusinessLogic
     {
-        public BaseApiController() { /* parmless not allowed */ }
+        protected T BizLogic { get; private set; }
 
+        private BaseApiController() { /* parmless not allowed */ }
+
+        /// <summary>
+        /// BaseApiController
+        /// </summary>
+        /// <param name="bizLogic"></param>
+        public BaseApiController( T bizLogic )
+        {
+            BizLogic = bizLogic;
+            try
+            {
+                BizLogic.DoSomething();
+            }
+            catch { /* eat it for this demo */ }
+        }
+
+        /// <summary>
+        /// HttpResponseMessage
+        /// </summary>
+        /// <returns></returns>
         protected HttpResponseMessage MakeResponse()
         {
             var hrm = new HttpResponseMessage( ModelState.IsValid ? HttpStatusCode.Accepted : HttpStatusCode.InternalServerError )
             {
-                ReasonPhrase = "hello tom"
+                ReasonPhrase = ModelState.IsValid ? "valid" : "not valid"
             };
 
             return hrm;
         }
     }
 
-    [RoutePrefix( "api/values" )]
-    public partial class ValuesController : BaseApiController
+    /// <summary>
+    /// 
+    /// </summary>
+    [RoutePrefix("api/values")]
+    public partial class ValuesController : BaseApiController<ISeeBusinessLogic>
     {
-        public ValuesController(int notUsed)
-        {
-            return;
-        }
+        /// <summary>
+        /// ValuesController - constructor with DI parameter
+        /// </summary>
+        /// <param name="bizLogic"></param>
+        public ValuesController( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
         [Route("")]
         public IEnumerable<GetDTO> Get()
@@ -36,7 +65,7 @@ namespace SeeSomeCode
             return new GetDTO[] { new GetDTO() };
         }
 
-        [Route( "{id}"  )]
+        [Route("{id}")]
         public GetDTO Get( int id )
         {
             DebugMessage(string.Format( "handling get request for [{0}]", id ));
@@ -44,14 +73,18 @@ namespace SeeSomeCode
             return new GetDTO();
         }
 
-        [Route( "" )]
+        [Route("")]
         public HttpResponseMessage Post( [FromBody] PostDTO postValue )
         {
             DebugMessage("handling post request");
 
             if( ModelState.IsValid )
             {
-                // do something
+                try
+                {
+                    BizLogic.DoSomething();
+                }
+                catch { /* eat it for this demo */ }
             }
             return base.MakeResponse();
         }
@@ -64,10 +97,10 @@ namespace SeeSomeCode
 
         public class PostDTO
         {
-            [DictionaryElement("DtoId")]
+            [Required] [DictionaryElement("DtoId")]
             public int DtoId { get; set; } = 100;
 
-            [DictionaryElement("FooName")]
+            [Required] [DictionaryElement("FooName")]
             public string DtoName { get; set; } = "onetwothree";
         }
     }

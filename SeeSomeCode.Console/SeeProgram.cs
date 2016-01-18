@@ -5,6 +5,9 @@ using System.Net.Http;
 
 namespace SeeSomeCode
 {
+    /// <summary>
+    /// SeeProgram - console application with self-hosted api
+    /// </summary>
     public class SeeProgram
     {
         static void Main()

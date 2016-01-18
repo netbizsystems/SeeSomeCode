@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Double-click (anything) into code or program right from here...&#xD;&#xA;&#xD;&#xA;- right-click methods.add&#xD;&#xA;- right-click properties.add&#xD;&#xA;- right-click class.details&#xD;&#xA;">
+    <Position X="3.792" Y="0.5" Height="1.146" Width="3.231" />
+  </Comment>
+  <Class Name="SeeSomeCode.ValuesController">
+    <Position X="3.75" Y="3.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="SeeSomeCode.ValuesController.GetDTO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ValuesController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="SeeSomeCode.ValuesController.PostDTO">
+        <TypeIdentifier>
+          <NewMemberFileName>ValuesController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgABAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValuesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.SeeStartup">
+    <Position X="7.75" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="SeeSomeCode.SeeStartup.ResolveApiController">
+        <TypeIdentifier>
+          <NewMemberFileName>SeeStartup.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>SeeStartup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.ValidationMaster">
+    <Position X="12" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAIEAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ValidationMaster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.TraceMessage">
+    <Position X="12" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SeeProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.ElementDictionary">
+    <Position X="12" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="SeeSomeCode.ElementDictionary.DictionaryElement">
+        <TypeIdentifier>
+          <NewMemberFileName>SeeModel.1.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SeeModel.1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.DictionaryElementAttribute">
+    <Position X="7.75" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAiAAAgAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>ValidationMaster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.BaseApiController&lt;T&gt;">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAQAAAA=</HashCode>
+      <FileName>ValuesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeeSomeCode.SeeBusinessLogic">
+    <Position X="0.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAEAAAAgAAAAA=</HashCode>
+      <FileName>SeeBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.ComponentModel.DataAnnotations.ValidationAttribute" Collapsed="true">
+    <Position X="7.75" Y="6.75" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="SeeSomeCode.ISeeBusinessLogic">
+    <Position X="0.5" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>SeeBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

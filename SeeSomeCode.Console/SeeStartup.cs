@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿
+using Owin;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System;
@@ -6,6 +7,9 @@ using System.Collections.Generic;
 
 namespace SeeSomeCode
 {
+    /// <summary>
+    /// SeeStartup - setup owin application 
+    /// </summary>
     public class SeeStartup
     {
         public void Configuration( IAppBuilder appBuilder )
@@ -14,6 +18,7 @@ namespace SeeSomeCode
 
             // see attributes on individual controllers
             config.MapHttpAttributeRoutes(); 
+
             // inject (something) into apicontroller
             config.DependencyResolver = new ResolveApiController();
 
@@ -25,29 +30,21 @@ namespace SeeSomeCode
         /// </summary>
         public class ResolveApiController : IDependencyResolver
         {
-            public IDependencyScope BeginScope()
-            {
-                return this;
-            }
-
-            public void Dispose()
-            {
-                return;
-            }
-
             public object GetService(Type serviceType)
             {
-                if (serviceType.BaseType == typeof(BaseApiController))
+                if (serviceType.BaseType != null && serviceType.BaseType.IsGenericType)
                 {
-                    return Activator.CreateInstance(serviceType, 123);
+                    return Activator.CreateInstance( serviceType, new SeeBusinessLogic() );
                 }
                 return null;
             }
 
-            public IEnumerable<object> GetServices(Type serviceType)
-            {
-                return new List<object>();
-            }
+            #region nothing to see here
+            public IDependencyScope BeginScope() { return this; }
+            public void Dispose() { return; }
+            public IEnumerable<object> GetServices(Type serviceType) { return new List<object>(); } 
+            #endregion
         }
     }
+
 }

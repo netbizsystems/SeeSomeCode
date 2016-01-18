@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace SeeSomeCode
 {
-    public partial class ValuesController : BaseApiController
+    public partial class ValuesController
     {
         /// <summary>
         /// DebugMessage - will not generate any bits in the assembly

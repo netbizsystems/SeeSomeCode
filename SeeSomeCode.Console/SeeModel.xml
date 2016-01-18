@@ -1,0 +1,30 @@
+﻿<!--
+  AppModel - provides introduction of meta-data in a controlled, well documented fashion.  Most of this
+  will be processed by a design-time T4 template for source-code generation and or load to the SQL Server
+  meta-data table for use at run-time.
+  
+  Note on TenantId - some values can be tenant specific for use in a hosted multi-tenant application.
+-->
+
+<AppModel modelName="SeeSomeCode">
+
+  <AppSettings tenantIdDefault="0">
+    <AppSetting settingId="apiPath" settingValue="api" isNeededByClient="true"/>
+    <AppSetting settingId="technicalSupportEmail" settingValue="support@somecode.com"/>
+    <AppSetting settingId="issueLogUrl" settingValue="https://netbiz.visualstudio.com/DefaultCollection/SeeSomeCode"/>
+    <AppSetting settingId="issueLoggerResource" settingValue="issue" isNeededByClient="true"/>
+  </AppSettings>
+  
+  <LocaleStrings languageCodeDefault="en-us">
+    <LocalizedStrings id="Foo.FooName">
+      <LocalizedString languageCode="en-us" localizedValue="see some code" />
+      <LocalizedString languageCode="fr-ca" localizedValue="voir des code" />
+    </LocalizedStrings>
+  </LocaleStrings>
+
+  <ModelElements>   
+    <ModelElement elementId="DtoId" validationName="ValidationD">SampleValue</ModelElement>
+    <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>   
+  </ModelElements>
+
+</AppModel>
