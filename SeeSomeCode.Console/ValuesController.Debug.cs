@@ -8,15 +8,15 @@ namespace SeeSomeCode
         /// <summary>
         /// DebugMessage - will not generate any bits in the assembly
         /// </summary>
-        partial void DebugMessage(string debugMessage);
+        partial void DebugMessage( string debugMessage);
 
 #if DEBUG
         /// <summary>
         /// DebugMessage - in debug mode it will generate those bits
         /// </summary>
-        partial void DebugMessage(string debugMessage)
+        partial void DebugMessage( string debugMessage)
         {
-            Trace.TraceInformation(TraceMessage.GetMessageText( debugMessage ));
+            base.BizLogic.SeeService1.WriteTrace( TraceMessage.GetMessageText(debugMessage));
         }
     }
 #endif

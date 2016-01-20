@@ -13,17 +13,20 @@ namespace SeeSomeCode
         static void Main()
         {
             string baseAddress = @"http://localhost:9000/";
+            var biz = new SeeBusinessLogic() as ISeeBusinessLogic;
 
             using ( WebApp.Start<SeeStartup>( url: baseAddress ) )
             {
-                System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("starting"));
+                biz.SeeService1.WriteTrace( TraceMessage.GetMessageText( "starting"));  
+                              
                 HttpClient client = new HttpClient();
                 var postResponse = client
                     .PostAsJsonAsync( baseAddress + "api/values", new ValuesController.PostDTO() )
                     .Result;
 
                 Console.ReadLine();
-                System.Diagnostics.Trace.TraceInformation(TraceMessage.GetMessageText("ending"));
+
+                biz.SeeService1.WriteTrace( TraceMessage.GetMessageText( "ending"));
             }
         }
     }

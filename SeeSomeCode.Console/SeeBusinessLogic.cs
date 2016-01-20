@@ -11,14 +11,14 @@ namespace SeeSomeCode
         /// <summary>
         /// SeeService1 - if needed here it is!
         /// </summary>
-        public virtual object SeeService1
+        public virtual Service1 SeeService1
         {
             get
             {
                 return _seeService1.Value;
             }
         }
-        private readonly Lazy<object> _seeService1 = new Lazy<object>(() => new object());
+        private readonly Lazy<Service1> _seeService1 = new Lazy<Service1>(() => new Service1());
 
         /// <summary>
         /// SeeService2 - if needed here it is!
@@ -47,8 +47,16 @@ namespace SeeSomeCode
     public interface ISeeBusinessLogic
     {
         object SeeService2 { get; }
-        object SeeService1 { get; }
+        Service1 SeeService1 { get; }
         void DoSomething();
         string SeeProperty { get; set; }
+    }
+
+    public class Service1
+    {
+        public void WriteTrace(string traceMessageText)
+        {
+            System.Diagnostics.Trace.TraceInformation( traceMessageText );
+        }
     }
 }
