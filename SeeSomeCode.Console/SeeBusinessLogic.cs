@@ -9,16 +9,16 @@ namespace SeeSomeCode
     {
         #region services (lots of them maybe)
         /// <summary>
-        /// SeeService1 - if needed here it is!
+        /// DiagnosticService - if needed here it is!
         /// </summary>
-        public virtual Service1 SeeService1
+        public virtual DiagnosticService DiagnosticService
         {
             get
             {
                 return _seeService1.Value;
             }
         }
-        private readonly Lazy<Service1> _seeService1 = new Lazy<Service1>(() => new Service1());
+        private readonly Lazy<DiagnosticService> _seeService1 = new Lazy<DiagnosticService>(() => new DiagnosticService());
 
         /// <summary>
         /// SeeService2 - if needed here it is!
@@ -46,7 +46,7 @@ namespace SeeSomeCode
     /// </summary>
     public interface ISeeBusinessLogic
     {
-        Service1 SeeService1 { get; }
+        DiagnosticService DiagnosticService { get; }
         object SeeService2 { get; }
         void DoSomething();
         string SeeProperty { get; set; }
@@ -55,7 +55,7 @@ namespace SeeSomeCode
     /// <summary>
     /// 
     /// </summary>
-    public class Service1
+    public class DiagnosticService
     {
         public void WriteTrace(string traceMessageText)
         {

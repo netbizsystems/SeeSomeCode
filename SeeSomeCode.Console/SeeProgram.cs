@@ -19,10 +19,9 @@ namespace SeeSomeCode
 
             using ( WebApp.Start<SeeStartup>( url: baseAddress ) )
             {
-                biz.SeeService1.WriteTrace( "starting" );  
+                biz.DiagnosticService.WriteTrace( "starting" );  
                               
                 HttpClient client = new HttpClient();
-
                 try
                 {
                     var postResponse = client.PostAsJsonAsync(baseAddress + "api/values", new ValuesController.PostDTO()).Result;
@@ -31,7 +30,7 @@ namespace SeeSomeCode
 
                 Console.ReadLine();
 
-                biz.SeeService1.WriteTrace( "ending" );
+                biz.DiagnosticService.WriteTrace( "ending" );
             }
         }
     }

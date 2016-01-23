@@ -69,12 +69,12 @@ namespace SeeSomeCode
 
                 if (!actionContext.ModelState.IsValid)
                 {
-                    api.BizLogic.SeeService1.WriteTrace("validation failed");
+                    api.BizLogic.DiagnosticService.WriteTrace("validation failed");
                     actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
                 }
                 else
                 {
-                    api.BizLogic.SeeService1.WriteTrace("validation succeeded");
+                    api.BizLogic.DiagnosticService.WriteTrace("validation succeeded");
                 }
 
                 base.OnActionExecuting(actionContext);
@@ -89,7 +89,7 @@ namespace SeeSomeCode
                 var api = (BaseApiController<ISeeBusinessLogic>)executedContext.ActionContext.ControllerContext.Controller;
                 if (true)
                 {
-                    api.BizLogic.SeeService1.WriteTrace("all done");                    
+                    api.BizLogic.DiagnosticService.WriteTrace("all done");                    
                 }
 
                 base.OnActionExecuted(executedContext);
@@ -108,7 +108,7 @@ namespace SeeSomeCode
 
                 if (true)
                 {
-                    api.BizLogic.SeeService1.WriteTrace("exception was handled by global handler");
+                    api.BizLogic.DiagnosticService.WriteTrace("exception was handled by global handler");
                     exceptionContext.Response = exceptionContext.Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, exceptionContext.Exception);
                 }
 
