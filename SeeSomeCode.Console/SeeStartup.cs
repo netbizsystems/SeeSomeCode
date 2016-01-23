@@ -4,6 +4,10 @@ using System.Web.Http;
 using System.Web.Http.Dependencies;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http.Controllers;
+using System.Web.Http.Filters;
 
 namespace SeeSomeCode
 {
@@ -21,6 +25,10 @@ namespace SeeSomeCode
 
             // inject (something) into apicontroller
             config.DependencyResolver = new ResolveApiController();
+            
+            //filters
+            config.Filters.Add( new SeeExceptionFilter() );
+            config.Filters.Add( new SeeActionFilter() );
 
             appBuilder.UseWebApi( config );
         }
@@ -28,7 +36,7 @@ namespace SeeSomeCode
         /// <summary>
         /// ResolveApiController - inject dependency into apicontroller
         /// </summary>
-        public class ResolveApiController : IDependencyResolver
+        private class ResolveApiController : IDependencyResolver
         {
             public object GetService(Type serviceType)
             {
@@ -44,6 +52,68 @@ namespace SeeSomeCode
             public void Dispose() { return; }
             public IEnumerable<object> GetServices(Type serviceType) { return new List<object>(); } 
             #endregion
+        }
+
+        /// <summary>
+        /// SeeActionFilter - respond to validation errors
+        /// </summary>
+        private class SeeActionFilter : System.Web.Http.Filters.ActionFilterAttribute
+        {
+            /// <summary>
+            /// OnActionExecuting - model attributes (if any) have been processed and may have found an error(s)
+            /// </summary>
+            /// <param name="actionContext"></param>
+            public override void OnActionExecuting(HttpActionContext actionContext)
+            {
+                var api = (BaseApiController<ISeeBusinessLogic>)actionContext.ControllerContext.Controller;
+
+                if (!actionContext.ModelState.IsValid)
+                {
+                    api.BizLogic.SeeService1.WriteTrace("validation failed");
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+                }
+                else
+                {
+                    api.BizLogic.SeeService1.WriteTrace("validation succeeded");
+                }
+
+                base.OnActionExecuting(actionContext);
+            }
+
+            /// <summary>
+            /// OnActionExecuted - 
+            /// </summary>
+            /// <param name="executedContext"></param>
+            public override void OnActionExecuted(HttpActionExecutedContext executedContext)
+            {
+                var api = (BaseApiController<ISeeBusinessLogic>)executedContext.ActionContext.ControllerContext.Controller;
+                if (true)
+                {
+                    api.BizLogic.SeeService1.WriteTrace("all done");                    
+                }
+
+                base.OnActionExecuted(executedContext);
+            }
+
+        }
+
+        /// <summary>
+        /// SeeExceptionFilter - respond to exceptions
+        /// </summary>
+        private class SeeExceptionFilter : System.Web.Http.Filters.ExceptionFilterAttribute
+        {
+            public override void OnException(HttpActionExecutedContext exceptionContext)
+            {
+                var api = (BaseApiController<ISeeBusinessLogic>)exceptionContext.ActionContext.ControllerContext.Controller;
+
+                if (true)
+                {
+                    api.BizLogic.SeeService1.WriteTrace("exception was handled by global handler");
+                    exceptionContext.Response = exceptionContext.Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, exceptionContext.Exception);
+                }
+
+                base.OnException(exceptionContext);
+            }
         }
     }
 

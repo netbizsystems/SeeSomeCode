@@ -12,7 +12,7 @@ namespace SeeSomeCode
     /// <typeparam name="T"></typeparam>
     public abstract partial class BaseApiController<T> : ApiController where T : ISeeBusinessLogic
     {
-        protected T BizLogic { get; private set; }
+        public T BizLogic { get; private set; }
 
         private BaseApiController() { /* parmless not allowed */ }
 
@@ -46,7 +46,7 @@ namespace SeeSomeCode
     }
 
     /// <summary>
-    /// 
+    /// ValuesController
     /// </summary>
     [RoutePrefix("api/values")]
     public partial class ValuesController : BaseApiController<ISeeBusinessLogic>
@@ -73,19 +73,22 @@ namespace SeeSomeCode
             return new GetDTO();
         }
 
+        /// <summary>
+        /// Post
+        /// </summary>
+        /// <param name="postValue"></param>
+        /// <returns>HttpResponseMessage</returns>
+        /// <remarks>
+        /// The model is valid by the time we get here.. see the global filter for that. Also, no need to
+        /// catch any exception from the biz.logic as a global filter catches that for us.
+        /// </remarks>
         [Route("")]
         public HttpResponseMessage Post( [FromBody] PostDTO postValue )
         {
-            DebugMessage("handling post request");
+            DebugMessage("handling post request in controller");
 
-            if( ModelState.IsValid )
-            {
-                try
-                {
-                    BizLogic.DoSomething();
-                }
-                catch { /* eat it for this demo */ }
-            }
+            BizLogic.DoSomething();
+
             return base.MakeResponse();
         }
 

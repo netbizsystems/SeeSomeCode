@@ -46,17 +46,28 @@ namespace SeeSomeCode
     /// </summary>
     public interface ISeeBusinessLogic
     {
-        object SeeService2 { get; }
         Service1 SeeService1 { get; }
+        object SeeService2 { get; }
         void DoSomething();
         string SeeProperty { get; set; }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class Service1
     {
         public void WriteTrace(string traceMessageText)
         {
-            System.Diagnostics.Trace.TraceInformation( traceMessageText );
+            System.Diagnostics.Trace.TraceInformation( FormatTraceMessage((traceMessageText)) );
+        }
+
+        private string FormatTraceMessage(string traceMessageText)
+        {
+            return string.Format("[{0}] - [{1}] -- {2}"
+                , DateTime.Now.ToShortDateString()
+                , DateTime.Now.ToLongTimeString()
+                , traceMessageText);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
@@ -59,31 +60,27 @@ namespace SeeSomeCode
                 throw new ApplicationException( $"element [{elementName}] not found in elementDictionary" );
             }
         }
-        public override bool IsValid( object value )
-        {
-            return ValidateAgainstMaster( value );
-        }
 
-        private bool ValidateAgainstMaster( object value )
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public override bool IsValid( object value )
         {
             var property = typeof(ValidationMaster)
                 .GetMembers()
-                .Where( prop => IsDefined( prop, typeof( ValidationAttribute )) )
-                .Where( prop => prop.Name == ValidationName )
-                .FirstOrDefault();
+                .Where(prop => IsDefined(prop, typeof(ValidationAttribute)))
+                .FirstOrDefault(prop => prop.Name == ValidationName);
 
             if (property != null)
-                foreach ( ValidationAttribute va in property.GetCustomAttributes( typeof(ValidationAttribute), true ) )
+                foreach (ValidationAttribute va in property.GetCustomAttributes(typeof(ValidationAttribute), true))
                 {
-                    var messageText = $"validating element [{ElementName}] aginst validation [{ValidationName}] attribute [{va.ToString()}]";
-                    System.Diagnostics.Trace.TraceInformation( TraceMessage.GetMessageText( messageText ) );
-
-                    if (!va.IsValid( value ))
+                    if (!va.IsValid(value))
                     {
-                        return false;
+                        return false; // bail out on first error
                     }
                 }
-            ;
 
             return true; // all is well
         }

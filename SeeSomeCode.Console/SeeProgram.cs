@@ -10,6 +10,8 @@ namespace SeeSomeCode
     /// </summary>
     public class SeeProgram
     {
+        public static object Dka = new object();
+
         static void Main()
         {
             string baseAddress = @"http://localhost:9000/";
@@ -17,28 +19,20 @@ namespace SeeSomeCode
 
             using ( WebApp.Start<SeeStartup>( url: baseAddress ) )
             {
-                biz.SeeService1.WriteTrace( TraceMessage.GetMessageText( "starting"));  
+                biz.SeeService1.WriteTrace( "starting" );  
                               
                 HttpClient client = new HttpClient();
-                var postResponse = client
-                    .PostAsJsonAsync( baseAddress + "api/values", new ValuesController.PostDTO() )
-                    .Result;
+
+                try
+                {
+                    var postResponse = client.PostAsJsonAsync(baseAddress + "api/values", new ValuesController.PostDTO()).Result;
+                }
+                catch { /* eat it for now */ }
 
                 Console.ReadLine();
 
-                biz.SeeService1.WriteTrace( TraceMessage.GetMessageText( "ending"));
+                biz.SeeService1.WriteTrace( "ending" );
             }
-        }
-    }
-
-    public class TraceMessage
-    {
-        public static string GetMessageText( string messageText )
-        {
-            return string.Format("[{0}] - [{1}] -- {2}"
-                , DateTime.Now.ToShortDateString()
-                , DateTime.Now.ToLongTimeString()
-                , messageText );
         }
     }
 }
