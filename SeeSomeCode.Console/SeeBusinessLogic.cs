@@ -21,19 +21,23 @@ namespace SeeSomeCode
         private readonly Lazy<DiagnosticService> _seeService1 = new Lazy<DiagnosticService>(() => new DiagnosticService());
 
         /// <summary>
-        /// SeeService2 - if needed here it is!
+        /// DataService - if needed here it is!
         /// </summary>
-        public virtual object SeeService2
+        public virtual object DataService
         {
             get
             {
-                return _seeService2.Value;
+                return _dataService.Value;
             }
         }
-        private readonly Lazy<object> _seeService2 = new Lazy<object>(() => new object());
+        private readonly Lazy<object> _dataService = new Lazy<object>(() => new object());
         #endregion
 
         public string SeeProperty { get; set; } = "see ?";
+
+        /// <summary>
+        /// SeeBusinessLogic - constructor
+        /// </summary>
         public SeeBusinessLogic() { }
         public void DoSomething()
         {
@@ -47,7 +51,7 @@ namespace SeeSomeCode
     public interface ISeeBusinessLogic
     {
         DiagnosticService DiagnosticService { get; }
-        object SeeService2 { get; }
+        object DataService { get; }
         void DoSomething();
         string SeeProperty { get; set; }
     }
