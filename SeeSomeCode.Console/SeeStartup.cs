@@ -115,6 +115,17 @@ namespace SeeSomeCode
                 base.OnException(exceptionContext);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private class SeeAuthFilter : AuthorizationFilterAttribute
+        {
+            public override void OnAuthorization(HttpActionContext actionContext)
+            {
+                base.OnAuthorization(actionContext);
+            }
+        }
     }
 
 }

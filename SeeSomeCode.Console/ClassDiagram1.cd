@@ -47,6 +47,11 @@
           <NewMemberFileName>SeeStartup.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
+      <Class Name="SeeSomeCode.SeeStartup.SeeAuthFilter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SeeStartup.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
@@ -78,7 +83,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SeeSomeCode.DictionaryElementAttribute" Collapsed="true">
-    <Position X="7.75" Y="5.75" Width="3.25" />
+    <Position X="7.75" Y="6.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>ValidationMaster.cs</FileName>
@@ -94,13 +99,13 @@
   <Class Name="SeeSomeCode.SeeBusinessLogic">
     <Position X="0.5" Y="3.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAEAAAAgAAAAA=</HashCode>
+      <HashCode>EAAAAAAAIAAAAAAAAAIAACAAAAEAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>SeeBusinessLogic.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="System.ComponentModel.DataAnnotations.ValidationAttribute" Collapsed="true">
-    <Position X="7.75" Y="6.75" Width="3.25" />
+    <Position X="7.75" Y="7.5" Width="3.25" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
@@ -110,7 +115,7 @@
   <Interface Name="SeeSomeCode.ISeeBusinessLogic">
     <Position X="0.5" Y="6.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>EAAAAAAAIAAAAAAAAAAAACAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SeeBusinessLogic.cs</FileName>
     </TypeIdentifier>
   </Interface>
