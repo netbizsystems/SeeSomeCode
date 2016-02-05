@@ -12,7 +12,7 @@
 	string localeIdDefault = doc.DocumentElement.GetAttribute("modelName");
     var modelElements = doc.DocumentElement.SelectNodes("/AppModel/ModelElements//ModelElement");
 
-	// The template below will generate a class that exposes elements found in the xml as entries
+	// This template will generate a class that exposes elements found in the xml as entries
 	// in a list.. this will make the xml metadata eaiser to work with at runtime. In another attempt
 	// at this I load XML into a SQL Server table rather than generating a class. That table has a view
 	// that makes the metadata very useful with entityframework and some wrapper classes that I built.
