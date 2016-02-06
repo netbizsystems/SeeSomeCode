@@ -8,10 +8,13 @@ namespace SeeSomeCode
     /// <summary>
     /// SeeProgram - console application with self-hosted api
     /// </summary>
+    /// <remarks>
+    /// Once this server is runing, try plugging url into your browser
+    /// http://localhost:9000/api/values
+    /// http://localhost:9000/api/values/1
+    /// </remarks>
     public class SeeProgram
     {
-        public static object Dka = new object();
-
         static void Main()
         {
             string baseAddress = @"http://localhost:9000/";
