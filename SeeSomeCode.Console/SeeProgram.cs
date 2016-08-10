@@ -10,7 +10,7 @@ namespace SeeSomeCode
     /// SeeProgram - console application with self-hosted api
     /// </summary>
     /// <remarks>
-    /// Once this server is runing, try plugging url into your browser
+    /// Once this server is runing, try plugging url into your browser (or Postman)
     /// http://localhost:9000/api/values
     /// http://localhost:9000/api/values/1
     /// </remarks>
@@ -23,13 +23,10 @@ namespace SeeSomeCode
 
             using ( WebApp.Start<SeeStartup>( url: baseAddress ) )
             {
-                biz.DiagnosticService.WriteTrace( "starting" );
-
+                biz.DiagnosticService.WriteTrace( "starting to listen on localhost:9000" );
                 RunAsync(baseAddress).Wait();
-
                 Console.ReadLine();
-
-                biz.DiagnosticService.WriteTrace( "ending" );
+                biz.DiagnosticService.WriteTrace( "ending listener" );
             }
         }
 
@@ -37,7 +34,7 @@ namespace SeeSomeCode
         {
             using (var client = new HttpClient())
             {
-                //var postResponse = client.PostAsJsonAsync(baseAddress + "api/values", new object()).Result;
+                var postResponse = client.PostAsJsonAsync(baseAddress + "api/values", new ViewModel() { ViewModelId = 123, ViewModelString = "xxx"}).Result;
 
                 //var getSingleResponse = await client.GetAsync(baseAddress + "api/values/1");
                 //if (getResponse.IsSuccessStatusCode)
@@ -46,7 +43,7 @@ namespace SeeSomeCode
                 //    //Console.WriteLine("{0}\t${1}\t{2}", product.Name, product.Price, product.Category);
                 //}
 
-                var getListResponse = await client.GetAsync(baseAddress + "api/values");
+                //var getListResponse = await client.GetAsync(baseAddress + "api/values");
                 //if (getResponse.IsSuccessStatusCode)
                 //{
                 //    //Product product = await response.Content.ReadAsAsync > Product > ();

@@ -66,16 +66,21 @@ namespace SeeSomeCode
             public override void OnActionExecuting(HttpActionContext actionContext)
             {
                 var api = (BaseApiController<ISeeBusinessLogic>)actionContext.ControllerContext.Controller;
+                api.BizLogic.DiagnosticService.WriteTrace("action executing");
 
-                if (!actionContext.ModelState.IsValid)
+                if (actionContext.Request.Method.Method.ToUpper() == "POST")
                 {
-                    api.BizLogic.DiagnosticService.WriteTrace("validation failed");
-                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+                    if (!actionContext.ModelState.IsValid)
+                    {
+                        api.BizLogic.DiagnosticService.WriteTrace("validation failed");
+                        actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.BadRequest, actionContext.ModelState);
+                    }
+                    else
+                    {
+                        api.BizLogic.DiagnosticService.WriteTrace("validation succeeded");
+                    }
                 }
-                else
-                {
-                    api.BizLogic.DiagnosticService.WriteTrace("validation succeeded");
-                }
+
 
                 base.OnActionExecuting(actionContext);
             }
@@ -89,7 +94,7 @@ namespace SeeSomeCode
                 var api = (BaseApiController<ISeeBusinessLogic>)executedContext.ActionContext.ControllerContext.Controller;
                 if (true)
                 {
-                    api.BizLogic.DiagnosticService.WriteTrace("all done");                    
+                    api.BizLogic.DiagnosticService.WriteTrace("action executed");                    
                 }
 
                 base.OnActionExecuted(executedContext);

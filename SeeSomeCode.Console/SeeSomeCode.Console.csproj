@@ -96,6 +96,7 @@
     <Compile Include="T4Depends\ValuesController.Debug.cs" />
     <Compile Include="SeeStartup.cs" />
     <Compile Include="T4Depends\ValidationMaster.cs" />
+    <Compile Include="T4Depends\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

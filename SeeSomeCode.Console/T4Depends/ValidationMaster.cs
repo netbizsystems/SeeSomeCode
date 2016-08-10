@@ -21,7 +21,7 @@ namespace SeeSomeCode
         /// ValidationA - note that each property can have several validation attributes
         /// </summary>
         [MinLength(1, ErrorMessageResourceName = @"validation.errors.ValidationA")]
-        [MaxLength(100, ErrorMessageResourceName = @"validation.errors.ValidationA")]
+        [MaxLength(1, ErrorMessageResourceName = @"validation.errors.ValidationA")]
         public static string ValidationA { get; set; }
 
         [StringLength(2)]

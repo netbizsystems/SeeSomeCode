@@ -32,7 +32,7 @@ namespace SeeSomeCode
 		}
 
 		[Route("")]
-        public HttpResponseMessage Post( [FromBody] object postValue )
+        public HttpResponseMessage Post( [FromBody] ViewModel postValue )
         {
             //DebugMessage("handling post request in controller");
 
