@@ -4,10 +4,9 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
 <#
-    string fileWithPath = this.Host.ResolvePath( "SeeModel.xml" ); //requires hostspecific=true
-    string justPath = System.IO.Path.GetDirectoryName( fileWithPath );
+	var solutionDir = this.Host.ResolveAssemblyReference("$(SolutionDir)"); //requires hostspecific=true
 	var doc = new System.Xml.XmlDocument();
-	doc.Load( justPath + "\\" + "SeeModel.xml" );
+	doc.Load( solutionDir + "SeeModel.xml" );
 
 	string localeIdDefault = doc.DocumentElement.GetAttribute("modelName");
     var modelElements = doc.DocumentElement.SelectNodes("/AppModel/ModelElements//ModelElement");

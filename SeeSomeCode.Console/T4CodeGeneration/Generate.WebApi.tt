@@ -1,0 +1,66 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<# 
+	var solutionDir = this.Host.ResolveAssemblyReference("$(SolutionDir)"); //requires hostspecific=true
+	var doc = new System.Xml.XmlDocument();
+	doc.Load( solutionDir + "SeeModel.xml" );
+
+	string localeIdDefault = doc.DocumentElement.GetAttribute("modelName");
+    var modelElements = doc.DocumentElement.SelectNodes("/AppModel/ModelResources//ModelResource");
+#>
+
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Web.Http;
+
+// GENERATED CODE - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
+namespace SeeSomeCode
+{
+<#
+    foreach (System.Xml.XmlElement me in modelElements)
+    {
+		var resourceName = me.Attributes["resourceName"].Value;
+#>
+    /// <summary>
+    /// REST Resource - <#= resourceName #>
+    /// </summary>
+	[RoutePrefix("api/<#= resourceName #>")]
+    public partial class <#= resourceName #>Controller : BaseApiController<ISeeBusinessLogic>
+    {
+        public <#= resourceName #>Controller( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
+
+		[Route("")]
+		public IEnumerable<object> GetAll()
+        {
+            return BizLogic.GetMany("<#= resourceName #>");
+        }
+
+		[Route("{id}")]
+		public IHttpActionResult GetSingle(int id)
+		{
+			var resourceSingle = BizLogic.GetOne( "<#= resourceName #>", "123" );
+			if ( resourceSingle == null )
+			{
+				return NotFound();
+			}
+			return Ok( resourceSingle );
+		}
+
+		[Route("")]
+        public HttpResponseMessage Post( [FromBody] object postValue )
+        {
+            //DebugMessage("handling post request in controller");
+
+            //BizLogic.DoSomething();
+
+            return base.MakeResponse();
+        }
+    }
+
+<#
+    }
+#>
+}

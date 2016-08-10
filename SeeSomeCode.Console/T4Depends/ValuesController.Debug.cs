@@ -16,7 +16,7 @@ namespace SeeSomeCode
         /// </summary>
         partial void DebugMessage( string debugMessage)
         {
-            base.BizLogic.DiagnosticService.WriteTrace( debugMessage );
+            //base.BizLogic.DiagnosticService.WriteTrace( debugMessage );
         }
     }
 #endif

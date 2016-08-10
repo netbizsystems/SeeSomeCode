@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SeeSomeCode
 {
@@ -43,6 +45,22 @@ namespace SeeSomeCode
         {
             throw new NotImplementedException();
         }
+
+        public object GetOne(string resourceName, string resourceId)
+        {
+            return new object();
+        }
+
+        public IEnumerable<object> GetMany(string resourceName)
+        {
+            var listOfMany = new List<object>();
+
+            listOfMany.Add(new object());
+            listOfMany.Add(new object());
+            listOfMany.Add(new object());
+
+            return listOfMany;
+        }
     }
 
     /// <summary>
@@ -54,6 +72,8 @@ namespace SeeSomeCode
         object DataService { get; }
         void DoSomething();
         string SeeProperty { get; set; }
+        object GetOne(string resourceName, string resourceId);
+        IEnumerable<object> GetMany(string resourceName);
     }
 
     /// <summary>
@@ -63,7 +83,7 @@ namespace SeeSomeCode
     {
         public void WriteTrace(string traceMessageText)
         {
-            System.Diagnostics.Trace.TraceInformation( FormatTraceMessage((traceMessageText)) );
+            System.Diagnostics.Trace.TraceInformation(FormatTraceMessage((traceMessageText)));
         }
 
         private string FormatTraceMessage(string traceMessageText)

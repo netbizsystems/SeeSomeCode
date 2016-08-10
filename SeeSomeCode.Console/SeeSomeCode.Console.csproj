@@ -79,30 +79,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SeeBusinessLogic.cs" />
     <Compile Include="SeeProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeeModel.1.cs">
+    <Compile Include="T4CodeGeneration\Generate.ElementDictionary.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SeeModel.1.tt</DependentUpon>
+      <DependentUpon>Generate.ElementDictionary.tt</DependentUpon>
     </Compile>
-    <Compile Include="ValuesController.Debug.cs" />
-    <Compile Include="ValuesController.cs" />
+    <Compile Include="T4CodeGeneration\Generate.WebApi.cs">
+      <DependentUpon>Generate.WebApi.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="T4Depends\SeeBusinessLogic.cs" />
+    <Compile Include="T4Depends\BaseApiController.cs" />
+    <Compile Include="T4Depends\ValuesController.Debug.cs" />
     <Compile Include="SeeStartup.cs" />
-    <Compile Include="ValidationMaster.cs" />
+    <Compile Include="T4Depends\ValidationMaster.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+    <None Include="T4Depends\SeeSomeCode.trace" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SeeModel.1.tt">
+    <Content Include="T4CodeGeneration\Generate.ElementDictionary.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SeeModel.1.cs</LastGenOutput>
+      <LastGenOutput>Generate.ElementDictionary.cs</LastGenOutput>
     </Content>
-    <Content Include="SeeModel.xml" />
+    <Content Include="T4CodeGeneration\Generate.WebApi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Generate.WebApi.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -20,18 +20,18 @@ namespace SeeSomeCode
         /// <summary>
         /// ValidationA - note that each property can have several validation attributes
         /// </summary>
-        [MinLength(1, ErrorMessageResourceName = "validation.errors.ValidationA")]
-        [MaxLength(100, ErrorMessageResourceName = "validation.errors.ValidationA")]
+        [MinLength(1, ErrorMessageResourceName = @"validation.errors.ValidationA")]
+        [MaxLength(100, ErrorMessageResourceName = @"validation.errors.ValidationA")]
         public static string ValidationA { get; set; }
 
         [StringLength(2)]
-        [RegularExpression(@"(ma|nh|vt)", ErrorMessageResourceName = "validation.errors.ValidationB")]
+        [RegularExpression(@"(ma|nh|vt)", ErrorMessageResourceName = @"validation.errors.ValidationB")]
         public static string ValidationB { get; set; }
 
-        [StringLength(100, ErrorMessageResourceName = "validation.errors.ValidationC")]
+        [StringLength(100, ErrorMessageResourceName = @"validation.errors.ValidationC")]
         public static string ValidationC { get; set; }
 
-        [Range(1,100, ErrorMessageResourceName = "validation.errors.ValidationD")]
+        [Range(1,100, ErrorMessageResourceName = @"validation.errors.ValidationD")]
         public static int ValidationD { get; set; }
     }
 

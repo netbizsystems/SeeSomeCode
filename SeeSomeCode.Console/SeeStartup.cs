@@ -12,7 +12,7 @@ using System.Web.Http.Filters;
 namespace SeeSomeCode
 {
     /// <summary>
-    /// SeeStartup - setup owin application 
+    /// SeeStartup - setup owin application , 
     /// </summary>
     public class SeeStartup
     {

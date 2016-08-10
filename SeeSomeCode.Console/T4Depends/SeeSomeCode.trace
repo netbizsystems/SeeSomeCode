@@ -1,0 +1,37 @@
+
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:03 AM] -- starting
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- validating element [DtoId] aginst validation [ValidationD] attribute [System.ComponentModel.DataAnnotations.RangeAttribute]
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- validating element [FooName] aginst validation [ValidationA] attribute [System.ComponentModel.DataAnnotations.MinLengthAttribute]
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- validating element [FooName] aginst validation [ValidationA] attribute [System.ComponentModel.DataAnnotations.MaxLengthAttribute]
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:04 AM] -- handling post request
+SeeSomeCode.exe Information: 0 : [01/16/17] - [8:17:33 AM] -- ending
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:25:14 AM] -- starting
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:25:19 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:25:19 AM] -- handling post request in controller
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:25:19 AM] -- all done
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:25:19 AM] -- exception was handled by global handler
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:26:16 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:26:16 AM] -- handling get request
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:26:16 AM] -- all done
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:33 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:33 AM] -- handling get request for [1]
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:33 AM] -- all done
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:41 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:41 AM] -- handling get request for [2]
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:41 AM] -- all done
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:49 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:49 AM] -- handling get request
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:49 AM] -- all done
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:59 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:59 AM] -- handling get request for [1]
+SeeSomeCode.exe Information: 0 : [02/06/16] - [11:28:59 AM] -- all done
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:34:20 AM] -- starting
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:34:23 AM] -- validation succeeded
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:34:23 AM] -- handling post request in controller
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:34:57 AM] -- all done
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:35:10 AM] -- exception was handled by global handler
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:35:40 AM] -- starting
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:35:42 AM] -- validation succeeded
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:35:42 AM] -- handling post request in controller
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:35:45 AM] -- all done
+SeeSomeCode.vshost.exe Information: 0 : [02/06/16] - [11:35:45 AM] -- exception was handled by global handler

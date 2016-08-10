@@ -27,4 +27,8 @@
     <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>   
   </ModelElements>
 
+  <ModelResources>
+    <ModelResource resourceName="Values" validationName="ValidationD">SampleValue</ModelResource>    
+  </ModelResources>
+
 </AppModel>
