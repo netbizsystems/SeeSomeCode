@@ -27,8 +27,14 @@
     <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>   
   </ModelElements>
 
+  <!--This model only has one REST resource. Imagine if you have a hundred or more. And that you are experiments with many 
+      different patterns. Simply adjust your TT template and regenerate all. Each API controller is a partial class of its own which
+      means that you can add other methods in a side-by-side partial class that won't get stepped on during regeneration.
+  -->
   <ModelResources>
-    <ModelResource resourceName="Values" validationName="ValidationD">SampleValue</ModelResource>    
+    <ModelResource resourceName="Values" nameSpace="SeeSomeCode" standardMethods="GETONE,GETALL,PUT,POST">
+      <!--more methods to come?-->
+    </ModelResource>  
   </ModelResources>
 
 </AppModel>

@@ -16,14 +16,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
 
-// GENERATED CODE - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
-namespace SeeSomeCode
-{
 <#
     foreach (System.Xml.XmlElement me in modelElements)
     {
 		var resourceName = me.Attributes["resourceName"].Value;
+		var nameSpace = me.Attributes["nameSpace"].Value;
+		var standardMethods = me.Attributes["standardMethods"].Value;
+		var standardMethodsArray = standardMethods.ToUpper().Split(',');
 #>
+// GENERATED CODE - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
+namespace SeeSomeCode
+{
     /// <summary>
     /// REST Resource - <#= resourceName #>
     /// </summary>
@@ -32,12 +35,23 @@ namespace SeeSomeCode
     {
         public <#= resourceName #>Controller( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
+<#
+    if (Array.IndexOf(standardMethodsArray, "GETALL") > -1)
+    {
+#>
 		[Route("")]
 		public IEnumerable<object> GetAll()
         {
             return BizLogic.GetMany("<#= resourceName #>");
         }
+<#
+	} // end of Array.IndexOf(standardMethodsArray, "GETALL") > -1
+#>
 
+<#
+    if (Array.IndexOf(standardMethodsArray, "GETONE") > -1)
+    {
+#>
 		[Route("{id}")]
 		public IHttpActionResult GetSingle(int id)
 		{
@@ -48,7 +62,14 @@ namespace SeeSomeCode
 			}
 			return Ok( resourceSingle );
 		}
+<#
+	} // end of Array.IndexOf(standardMethodsArray, "GETONE") > -1
+#>
 
+<#
+    if (Array.IndexOf(standardMethodsArray, "POST") > -1)
+    {
+#>
 		[Route("")]
         public HttpResponseMessage Post( [FromBody] object postValue )
         {
@@ -58,9 +79,12 @@ namespace SeeSomeCode
 
             return base.MakeResponse();
         }
+<#
+	} // end of Array.IndexOf(standardMethodsArray, "POST") > -1
+#>
     }
+}
 
 <#
     }
 #>
-}
