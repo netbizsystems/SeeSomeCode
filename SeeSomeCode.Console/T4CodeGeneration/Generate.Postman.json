@@ -1,26 +1,28 @@
 ﻿{
-	"id": "13800bdf-6276-4c50-b21d-3ade0735fea3",
+	"id": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481",
 	"name": "SeeSomeCode",
 	"description": "SeeSomeCode generated Postman configuration to provide testing of the API",
 	"order": [],
 	"folders": [
 		{
-			"id": "49d73515-e390-4499-9dae-a1b654172db3",
+			"id": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd",
 			"name": "Values Resource Requests",
 			"description": "",
 			"order": [
-				"1fa16b51-135e-4b49-95d7-680523696343"
-				,"42c6f702-ff42-4aff-ad4d-e8f7ca426adb"
+				"cf848cc5-f0ec-4004-87fc-7034db8d8359"
+				,"330ad030-bd66-49f9-9c87-51c2a8702464"
+				,"a32458a6-9dcb-4d52-9824-98fc7f393581"
 			],
 			"owner": "netbiz"
 		}
 		,{
-			"id": "6570db66-8fb0-4180-8e39-3bf0633beed3",
+			"id": "383b3cbf-21fb-42b0-b484-e4d6846eded2",
 			"name": "Members Resource Requests",
 			"description": "",
 			"order": [
-				"fd5032ec-86a7-4a01-9d89-5870df80ef8b"
-				,"591e61e9-88a8-4fa5-a30b-05a7e5392f6e"
+				"4bd3f4fa-24fd-4c16-a86c-151c5b40694d"
+				,"4204aebc-1214-469b-9023-186a176b41b3"
+				,"f4557b26-5c0e-48c5-9f90-858b99f3f65a"
 			],
 			"owner": "netbiz"
 		}
@@ -30,9 +32,11 @@
 	"public": false,
 	"published": false,
 	"requests": [
-		{ "id": "1fa16b51-135e-4b49-95d7-680523696343","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Values","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "49d73515-e390-4499-9dae-a1b654172db3","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
-		,{ "id": "42c6f702-ff42-4aff-ad4d-e8f7ca426adb","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Values","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "49d73515-e390-4499-9dae-a1b654172db3" }
-		,{ "id": "fd5032ec-86a7-4a01-9d89-5870df80ef8b","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Members","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "6570db66-8fb0-4180-8e39-3bf0633beed3","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
-		,{ "id": "591e61e9-88a8-4fa5-a30b-05a7e5392f6e","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Members","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "6570db66-8fb0-4180-8e39-3bf0633beed3" }
+		{ "id": "cf848cc5-f0ec-4004-87fc-7034db8d8359","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
+		,{ "id": "330ad030-bd66-49f9-9c87-51c2a8702464","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd" }
+		,{ "id": "a32458a6-9dcb-4d52-9824-98fc7f393581","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values/123","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd" }
+		,{ "id": "4bd3f4fa-24fd-4c16-a86c-151c5b40694d","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "383b3cbf-21fb-42b0-b484-e4d6846eded2","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
+		,{ "id": "4204aebc-1214-469b-9023-186a176b41b3","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "383b3cbf-21fb-42b0-b484-e4d6846eded2" }
+		,{ "id": "f4557b26-5c0e-48c5-9f90-858b99f3f65a","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members/123","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "383b3cbf-21fb-42b0-b484-e4d6846eded2" }
 	]
 }

@@ -46,9 +46,9 @@ namespace SeeSomeCode
             throw new NotImplementedException();
         }
 
-        public object GetOne(string resourceName, string resourceId)
+        public ViewModel GetOne(string resourceName, string resourceId)
         {
-            return new object();
+            return new ViewModel() { ViewModelId = 1, ViewModelString = "value1" };
         }
 
         public IEnumerable<object> GetMany(string resourceName)
@@ -72,7 +72,7 @@ namespace SeeSomeCode
         object DataService { get; }
         void DoSomething();
         string SeeProperty { get; set; }
-        object GetOne(string resourceName, string resourceId);
+        ViewModel GetOne(string resourceName, string resourceId);
         IEnumerable<object> GetMany(string resourceName);
     }
 

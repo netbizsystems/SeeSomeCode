@@ -137,3 +137,10 @@ SeeSomeCode.exe Information: 0 : [08/11/16] - [2:53:43 PM] -- action executing
 SeeSomeCode.exe Information: 0 : [08/11/16] - [2:53:43 PM] -- action executed
 SeeSomeCode.exe Information: 0 : [08/11/16] - [2:53:49 PM] -- action executing
 SeeSomeCode.exe Information: 0 : [08/11/16] - [2:53:49 PM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:17:46 PM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:17:46 PM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:21:07 PM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:21:09 PM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:21:09 PM] -- validation failed
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:21:20 PM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/11/16] - [3:21:20 PM] -- action executed

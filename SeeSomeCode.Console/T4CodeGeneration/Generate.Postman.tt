@@ -44,7 +44,7 @@
 	if (Array.IndexOf(standardMethodsArray, "POST") > -1) 
 	{
 		requestGuid = Guid.NewGuid().ToString();
-		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}"",""preRequestScript"": null,""pathVariables"": null,""method"": ""POST"",""data"": [],""dataMode"": ""raw"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""{1}{2}"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}"",""rawModeData"": {{ ""viewModelId"":""123"",""ViewModelString"":""hellodave@yahoo.com"" }}", 
+		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}"",""preRequestScript"": null,""pathVariables"": null,""method"": ""POST"",""data"": [],""dataMode"": ""raw"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""create new resource"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}"",""rawModeData"": {{ ""viewModelId"":""123"",""ViewModelString"":""hellodave@yahoo.com"" }}", 
 			requestGuid, 
 			serverUrl, 
 			resourceName,
@@ -58,7 +58,7 @@
 	if ( Array.IndexOf(standardMethodsArray, "GETALL") > -1 )
 	{
 		requestGuid = Guid.NewGuid().ToString();
-		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}"",""preRequestScript"": null,""pathVariables"": null,""method"": ""GET"",""data"": [],""dataMode"": ""params"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""{1}{2}"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}""", 
+		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}"",""preRequestScript"": null,""pathVariables"": null,""method"": ""GET"",""data"": [],""dataMode"": ""params"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""all resources"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}""", 
 			requestGuid, 
 			serverUrl, 
 			resourceName,
@@ -67,6 +67,21 @@
 #>
 				<#= comma1 #>"<#= requestGuid #>"
 <#
+		comma1 = ",";
+	}
+	if ( Array.IndexOf(standardMethodsArray, "GETONE") > -1 )
+	{
+		requestGuid = Guid.NewGuid().ToString();
+		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}/123"",""preRequestScript"": null,""pathVariables"": null,""method"": ""GET"",""data"": [],""dataMode"": ""params"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""single resource"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}""", 
+			requestGuid, 
+			serverUrl, 
+			resourceName,
+			postmanGuid, 
+			folderGuid ));
+#>
+				<#= comma1 #>"<#= requestGuid #>"
+<#
+		comma1 = ",";
 	}
 	comma0 = ",";
 #>
