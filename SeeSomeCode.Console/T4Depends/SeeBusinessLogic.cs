@@ -53,11 +53,11 @@ namespace SeeSomeCode
 
         public IEnumerable<object> GetMany(string resourceName)
         {
-            var listOfMany = new List<object>();
+            var listOfMany = new List<ViewModel>();
 
-            listOfMany.Add(new object());
-            listOfMany.Add(new object());
-            listOfMany.Add(new object());
+            listOfMany.Add(new ViewModel() { ViewModelId = 1, ViewModelString = "value1" });
+            listOfMany.Add(new ViewModel() { ViewModelId = 2, ViewModelString = "value2" });
+            listOfMany.Add(new ViewModel() { ViewModelId = 3, ViewModelString = "value3" });
 
             return listOfMany;
         }

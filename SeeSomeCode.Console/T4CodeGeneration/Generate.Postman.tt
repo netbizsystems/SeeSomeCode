@@ -1,0 +1,96 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".json" #>
+<# 
+	var solutionDir = this.Host.ResolveAssemblyReference("$(SolutionDir)"); //requires hostspecific=true
+	var doc = new System.Xml.XmlDocument();
+	doc.Load( solutionDir + "SeeModel.xml" );
+
+	string modelName = doc.DocumentElement.GetAttribute("modelName");
+    var resourceElements = doc.DocumentElement.SelectNodes("/AppModel/ModelResources//ModelResource");
+
+	var postmanGuid = Guid.NewGuid().ToString();
+	var serverUrl = "http://localhost:9000/api/";
+#>
+{
+	"id": "<#= postmanGuid #>",
+	"name": "<#= modelName #>",
+	"description": "<#= modelName #> generated Postman configuration to provide testing of the API",
+	"order": [],
+	"folders": [
+<#
+	var wtf = new List<string>();
+	var postmanRequests = new List<string>();
+	var comma0 = "";
+
+    foreach (System.Xml.XmlElement resourceElement in resourceElements)
+    {
+		var folderGuid = Guid.NewGuid().ToString();
+
+		var resourceName = resourceElement.Attributes["resourceName"].Value;
+		var standardMethods = resourceElement.Attributes["standardMethods"].Value;
+		var standardMethodsArray = standardMethods.ToUpper().Split(',');
+#>
+		<#= comma0 #>{
+			"id": "<#= folderGuid #>",
+			"name": "<#= resourceName #> Resource Requests",
+			"description": "",
+			"order": [
+<#
+	var comma1 = "";
+	var requestGuid = "";
+	if (Array.IndexOf(standardMethodsArray, "POST") > -1) 
+	{
+		requestGuid = Guid.NewGuid().ToString();
+		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}"",""preRequestScript"": null,""pathVariables"": null,""method"": ""POST"",""data"": [],""dataMode"": ""raw"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""{1}{2}"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}"",""rawModeData"": {{ ""viewModelId"":""123"",""ViewModelString"":""hellodave@yahoo.com"" }}", 
+			requestGuid, 
+			serverUrl, 
+			resourceName,
+			postmanGuid, 
+			folderGuid ));
+#>
+				<#= comma1 #>"<#= requestGuid #>"
+<#
+		comma1 = ",";
+	}
+	if ( Array.IndexOf(standardMethodsArray, "GETALL") > -1 )
+	{
+		requestGuid = Guid.NewGuid().ToString();
+		postmanRequests.Add(string.Format(@"""id"": ""{0}"",""headers"": ""Content-Type: application/json\n"",""url"": ""{1}{2}"",""preRequestScript"": null,""pathVariables"": null,""method"": ""GET"",""data"": [],""dataMode"": ""params"",""version"": 2,""tests"": null,""currentHelper"": ""normal"",""helperAttributes"": {{}},""time"": 1470853294388,""name"": ""{1}{2}"",""description"": """",""collectionId"": ""{3}"",""responses"": [],""folder"": ""{4}""", 
+			requestGuid, 
+			serverUrl, 
+			resourceName,
+			postmanGuid, 
+			folderGuid ));
+#>
+				<#= comma1 #>"<#= requestGuid #>"
+<#
+	}
+	comma0 = ",";
+#>
+			],
+			"owner": "netbiz"
+		}
+<#
+	}
+#>
+	],
+	"timestamp": 1470849044801,
+	"owner": "",
+	"public": false,
+	"published": false,
+	"requests": [
+<#
+	var comma2 = "";
+	foreach( var postmanRequest in postmanRequests)
+	{
+#>
+		<#= comma2 #>{ <#= postmanRequest #> }
+<#
+		comma2 = ",";
+	}
+#>
+	]
+}

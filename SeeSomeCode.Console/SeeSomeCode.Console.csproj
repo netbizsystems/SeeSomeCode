@@ -88,8 +88,8 @@
     </Compile>
     <Compile Include="T4CodeGeneration\Generate.WebApi.cs">
       <DependentUpon>Generate.WebApi.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="T4Depends\SeeBusinessLogic.cs" />
     <Compile Include="T4Depends\BaseApiController.cs" />
@@ -102,12 +102,21 @@
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+    <None Include="T4CodeGeneration\Generate.Postman.json">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Generate.Postman.tt</DependentUpon>
+    </None>
     <None Include="T4Depends\SeeSomeCode.trace" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="T4CodeGeneration\Generate.ElementDictionary.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Generate.ElementDictionary.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4CodeGeneration\Generate.Postman.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Generate.Postman.json</LastGenOutput>
     </Content>
     <Content Include="T4CodeGeneration\Generate.WebApi.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

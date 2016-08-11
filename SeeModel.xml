@@ -32,9 +32,8 @@
       means that you can add other methods in a side-by-side partial class that won't get stepped on during regeneration.
   -->
   <ModelResources>
-    <ModelResource resourceName="Values" nameSpace="SeeSomeCode" standardMethods="GETONE,GETALL,PUT,POST">
-      <!--more methods to come?-->
-    </ModelResource>  
+    <ModelResource resourceName="Values" nameSpace="SeeSomeCode" standardMethods="GETONE,GETALL,PUT,POST"></ModelResource>
+    <ModelResource resourceName="Members" nameSpace="SeeSomeCode" standardMethods="GETONE,GETALL,PUT,POST"></ModelResource>
   </ModelResources>
 
 </AppModel>

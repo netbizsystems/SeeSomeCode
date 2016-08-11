@@ -1,0 +1,38 @@
+﻿{
+	"id": "13800bdf-6276-4c50-b21d-3ade0735fea3",
+	"name": "SeeSomeCode",
+	"description": "SeeSomeCode generated Postman configuration to provide testing of the API",
+	"order": [],
+	"folders": [
+		{
+			"id": "49d73515-e390-4499-9dae-a1b654172db3",
+			"name": "Values Resource Requests",
+			"description": "",
+			"order": [
+				"1fa16b51-135e-4b49-95d7-680523696343"
+				,"42c6f702-ff42-4aff-ad4d-e8f7ca426adb"
+			],
+			"owner": "netbiz"
+		}
+		,{
+			"id": "6570db66-8fb0-4180-8e39-3bf0633beed3",
+			"name": "Members Resource Requests",
+			"description": "",
+			"order": [
+				"fd5032ec-86a7-4a01-9d89-5870df80ef8b"
+				,"591e61e9-88a8-4fa5-a30b-05a7e5392f6e"
+			],
+			"owner": "netbiz"
+		}
+	],
+	"timestamp": 1470849044801,
+	"owner": "",
+	"public": false,
+	"published": false,
+	"requests": [
+		{ "id": "1fa16b51-135e-4b49-95d7-680523696343","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Values","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "49d73515-e390-4499-9dae-a1b654172db3","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
+		,{ "id": "42c6f702-ff42-4aff-ad4d-e8f7ca426adb","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Values","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "49d73515-e390-4499-9dae-a1b654172db3" }
+		,{ "id": "fd5032ec-86a7-4a01-9d89-5870df80ef8b","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Members","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "6570db66-8fb0-4180-8e39-3bf0633beed3","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
+		,{ "id": "591e61e9-88a8-4fa5-a30b-05a7e5392f6e","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "http://localhost:9000/api/Members","description": "","collectionId": "13800bdf-6276-4c50-b21d-3ade0735fea3","responses": [],"folder": "6570db66-8fb0-4180-8e39-3bf0633beed3" }
+	]
+}
