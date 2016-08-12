@@ -15,6 +15,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
+using SeeSomeCode.T4Depends;
 
 <#
     foreach (System.Xml.XmlElement me in modelElements)
@@ -23,9 +24,10 @@ using System.Web.Http;
 		var nameSpace = me.Attributes["nameSpace"].Value;
 		var standardMethods = me.Attributes["standardMethods"].Value;
 		var standardMethodsArray = standardMethods.ToUpper().Split(',');
+		var viewModelName = me.Attributes["viewModel"].Value;
 #>
 // GENERATED CODE - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
-namespace SeeSomeCode
+namespace <#= nameSpace #>
 {
     /// <summary>
     /// REST Resource - <#= resourceName #>
@@ -36,42 +38,57 @@ namespace SeeSomeCode
         public <#= resourceName #>Controller( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
 <#
+	// -------------------------------------------------------------------------------------
     if (Array.IndexOf(standardMethodsArray, "GETALL") > -1)
     {
 #>
 		[Route("")]
-		public IEnumerable<object> GetAll()
+		public IEnumerable<<#= viewModelName #>> GetAll()
         {
-            return BizLogic.GetMany("<#= resourceName #>");
+            var viewModelList = new List<<#= viewModelName #>>();
+            var dm = BizLogic.GetMany("Values");
+		    foreach (var model in dm)
+		    {
+                viewModelList.Add(new <#= viewModelName #>() {ViewModelId = 1, ViewModelString = "view model string"});
+
+            }
+            return viewModelList;
         }
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "GETALL") > -1
 #>
 
 <#
+	// -------------------------------------------------------------------------------------
     if (Array.IndexOf(standardMethodsArray, "GETONE") > -1)
     {
 #>
 		[Route("{id}")]
 		public IHttpActionResult GetSingle(int id)
 		{
-			var resourceSingle = BizLogic.GetOne( "<#= resourceName #>", "123" );
-			if ( resourceSingle == null )
+			var domainModel = BizLogic.GetOne( "Values", "123" );
+			if ( domainModel == null )
 			{
 				return NotFound();
 			}
-			return Ok( resourceSingle );
+            // todo: implement automapper for this        
+			return Ok( new <#= viewModelName #>()
+			{
+			    ViewModelId = domainModel.SampleDomainId,
+                ViewModelString = domainModel.SampleDomainString
+			} );
 		}
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "GETONE") > -1
 #>
 
 <#
+	// -------------------------------------------------------------------------------------
     if (Array.IndexOf(standardMethodsArray, "POST") > -1)
     {
 #>
 		[Route("")]
-        public HttpResponseMessage Post( [FromBody] ViewModel postValue )
+        public HttpResponseMessage Post( [FromBody] SampleDto postValue )
         {
             //DebugMessage("handling post request in controller");
 
@@ -82,6 +99,20 @@ namespace SeeSomeCode
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "POST") > -1
 #>
+		/// <summary>
+		/// <#= viewModelName #> - with builtin validation
+		/// </summary>
+		/// <remarks>
+		/// Any DictionaryElement attributes seen below will be processed BEFORE the API method is called. If the model fails
+		/// validation, based on the validationmaster, the mothod will not be called at all and a response with error details will be returned.
+		/// </remarks>
+		public class <#= viewModelName #>
+		{
+			public int ViewModelId { get; set; }
+
+			[DictionaryElement("FooName")]
+			public string ViewModelString { get; set; }
+		}
     }
 }
 

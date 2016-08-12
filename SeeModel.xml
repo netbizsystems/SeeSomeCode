@@ -27,13 +27,17 @@
     <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>   
   </ModelElements>
 
-  <!--This model only has one REST resource. Imagine if you have a hundred or more. And that you are experiments with many 
-      different patterns. Simply adjust your TT template and regenerate all. Each API controller is a partial class of its own which
-      means that you can add other methods in a side-by-side partial class that won't get stepped on during regeneration.
+  <!--Imagine if you have a hundred or more resources. And that you are experiments with many different patterns. 
+      Simply adjust your TT template to reflect the pattern that yo uwant to follow and regenerate all. Each API controller 
+      is a partial class of its own which means that you can add other methods in a side-by-side partial class that 
+      won't get stepped on during regeneration.
+      
+      The generate.postman.tt template will use these resources to generate a json file for import into Postman where they
+      all will appear as a collection of requests depending on which standardMethods you have specified.
   -->
   <ModelResources>
-    <ModelResource resourceName="Values" nameSpace="SeeSomeCode" standardMethods="GETONE,GETALL,PUT,POST"></ModelResource>
-    <ModelResource resourceName="Members" nameSpace="SeeSomeCode" standardMethods="GETONE,GETALL,PUT,POST"></ModelResource>
+    <ModelResource resourceName="Values" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="ValuesViewModel"></ModelResource>
+    <ModelResource resourceName="Members" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="MembersViewModel"></ModelResource>
   </ModelResources>
 
 </AppModel>

@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿
 using System.Web.Http;
 using System.Net.Http;
 using System.Net;
 
-namespace SeeSomeCode
+namespace SeeSomeCode.T4Depends
 {
     /// <summary>
     /// BaseApiController - provide consistent access to biz from api controller(s)

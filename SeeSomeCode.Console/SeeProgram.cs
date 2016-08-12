@@ -3,6 +3,7 @@ using Microsoft.Owin.Hosting;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using SeeSomeCode.T4Depends;
 
 namespace SeeSomeCode
 {
@@ -34,7 +35,7 @@ namespace SeeSomeCode
         {
             using (var client = new HttpClient())
             {
-                var postResponse = client.PostAsJsonAsync(baseAddress + "api/values", new ViewModel() { ViewModelId = 123, ViewModelString = "xxx"}).Result;
+                //var postResponse = client.PostAsJsonAsync(baseAddress + "api/values", new ViewModel() { ViewModelId = 123, ViewModelString = "xxx"}).Result;
 
                 //var getSingleResponse = await client.GetAsync(baseAddress + "api/values/1");
                 //if (getResponse.IsSuccessStatusCode)

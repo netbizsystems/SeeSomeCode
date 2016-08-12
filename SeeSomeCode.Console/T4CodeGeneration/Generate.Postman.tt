@@ -16,7 +16,7 @@
 #>
 {
 	"id": "<#= postmanGuid #>",
-	"name": "<#= modelName #>",
+	"name": "<#= modelName #> Collection (generated)",
 	"description": "<#= modelName #> generated Postman configuration to provide testing of the API",
 	"order": [],
 	"folders": [

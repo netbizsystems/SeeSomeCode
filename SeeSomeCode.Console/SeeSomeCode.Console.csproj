@@ -91,12 +91,16 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="T4Depends\DiagnosticService.cs" />
+    <Compile Include="T4Depends\DictionaryElementAttribute.cs" />
+    <Compile Include="T4Depends\ISeeBusinessLogic.cs" />
+    <Compile Include="T4Depends\SampleDomain.cs" />
+    <Compile Include="T4Depends\SampleDto.cs" />
     <Compile Include="T4Depends\SeeBusinessLogic.cs" />
     <Compile Include="T4Depends\BaseApiController.cs" />
-    <Compile Include="T4Depends\ValuesController.Debug.cs" />
+    <Compile Include="T4Depends\ValuesController.cs" />
     <Compile Include="SeeStartup.cs" />
     <Compile Include="T4Depends\ValidationMaster.cs" />
-    <Compile Include="T4Depends\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

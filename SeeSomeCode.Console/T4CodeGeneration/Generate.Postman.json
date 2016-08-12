@@ -1,28 +1,28 @@
 ﻿{
-	"id": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481",
-	"name": "SeeSomeCode",
+	"id": "de459914-2df8-43d8-a470-72a4d9365d30",
+	"name": "SeeSomeCode Collection (generated)",
 	"description": "SeeSomeCode generated Postman configuration to provide testing of the API",
 	"order": [],
 	"folders": [
 		{
-			"id": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd",
+			"id": "80ee95c7-aa0e-4ff4-a733-23ef1ada3d75",
 			"name": "Values Resource Requests",
 			"description": "",
 			"order": [
-				"cf848cc5-f0ec-4004-87fc-7034db8d8359"
-				,"330ad030-bd66-49f9-9c87-51c2a8702464"
-				,"a32458a6-9dcb-4d52-9824-98fc7f393581"
+				"8851d4aa-e8c5-4046-877f-92d0c4353273"
+				,"6acdd552-4b38-422a-b14a-7c495f5e63e4"
+				,"2360398d-5e2c-4312-a0ab-7dbd82d693d0"
 			],
 			"owner": "netbiz"
 		}
 		,{
-			"id": "383b3cbf-21fb-42b0-b484-e4d6846eded2",
+			"id": "b9547c09-ef6a-4177-9a8a-26a73f3d46d7",
 			"name": "Members Resource Requests",
 			"description": "",
 			"order": [
-				"4bd3f4fa-24fd-4c16-a86c-151c5b40694d"
-				,"4204aebc-1214-469b-9023-186a176b41b3"
-				,"f4557b26-5c0e-48c5-9f90-858b99f3f65a"
+				"cf2acb7b-d4a9-4ef5-adba-934e30192096"
+				,"c913db50-7250-40e3-92e1-94e0ac082507"
+				,"506b1f3a-7b46-4eb2-8bee-3f5b4960a4d9"
 			],
 			"owner": "netbiz"
 		}
@@ -32,11 +32,11 @@
 	"public": false,
 	"published": false,
 	"requests": [
-		{ "id": "cf848cc5-f0ec-4004-87fc-7034db8d8359","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
-		,{ "id": "330ad030-bd66-49f9-9c87-51c2a8702464","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd" }
-		,{ "id": "a32458a6-9dcb-4d52-9824-98fc7f393581","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values/123","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "dd4781c1-e65e-4e2b-bc87-7295b13a0bdd" }
-		,{ "id": "4bd3f4fa-24fd-4c16-a86c-151c5b40694d","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "383b3cbf-21fb-42b0-b484-e4d6846eded2","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
-		,{ "id": "4204aebc-1214-469b-9023-186a176b41b3","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "383b3cbf-21fb-42b0-b484-e4d6846eded2" }
-		,{ "id": "f4557b26-5c0e-48c5-9f90-858b99f3f65a","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members/123","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "b4380ef2-ca80-4ac7-8a3b-a6a0a7d99481","responses": [],"folder": "383b3cbf-21fb-42b0-b484-e4d6846eded2" }
+		{ "id": "8851d4aa-e8c5-4046-877f-92d0c4353273","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "de459914-2df8-43d8-a470-72a4d9365d30","responses": [],"folder": "80ee95c7-aa0e-4ff4-a733-23ef1ada3d75","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
+		,{ "id": "6acdd552-4b38-422a-b14a-7c495f5e63e4","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "de459914-2df8-43d8-a470-72a4d9365d30","responses": [],"folder": "80ee95c7-aa0e-4ff4-a733-23ef1ada3d75" }
+		,{ "id": "2360398d-5e2c-4312-a0ab-7dbd82d693d0","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values/123","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "de459914-2df8-43d8-a470-72a4d9365d30","responses": [],"folder": "80ee95c7-aa0e-4ff4-a733-23ef1ada3d75" }
+		,{ "id": "cf2acb7b-d4a9-4ef5-adba-934e30192096","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "de459914-2df8-43d8-a470-72a4d9365d30","responses": [],"folder": "b9547c09-ef6a-4177-9a8a-26a73f3d46d7","rawModeData": { "viewModelId":"123","ViewModelString":"hellodave@yahoo.com" } }
+		,{ "id": "c913db50-7250-40e3-92e1-94e0ac082507","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "de459914-2df8-43d8-a470-72a4d9365d30","responses": [],"folder": "b9547c09-ef6a-4177-9a8a-26a73f3d46d7" }
+		,{ "id": "506b1f3a-7b46-4eb2-8bee-3f5b4960a4d9","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members/123","preRequestScript": null,"pathVariables": null,"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "de459914-2df8-43d8-a470-72a4d9365d30","responses": [],"folder": "b9547c09-ef6a-4177-9a8a-26a73f3d46d7" }
 	]
 }

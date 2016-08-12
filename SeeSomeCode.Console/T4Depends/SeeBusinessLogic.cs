@@ -1,8 +1,9 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SeeSomeCode
+namespace SeeSomeCode.T4Depends
 {
     /// <summary>
     /// SeeBusinessLogic - for DI into ApiController
@@ -46,52 +47,18 @@ namespace SeeSomeCode
             throw new NotImplementedException();
         }
 
-        public ViewModel GetOne(string resourceName, string resourceId)
+        public SampleDomain GetOne(string resourceName, string resourceId)
         {
-            return new ViewModel() { ViewModelId = 1, ViewModelString = "value1" };
+            return new SampleDomain() { SampleDomainId  = 1, SampleDomainString = "sample domain string"};
         }
 
-        public IEnumerable<object> GetMany(string resourceName)
+        public IEnumerable<SampleDomain> GetMany(string resourceName)
         {
-            var listOfMany = new List<ViewModel>();
+            var listOfMany = new List<SampleDomain>();
 
-            listOfMany.Add(new ViewModel() { ViewModelId = 1, ViewModelString = "value1" });
-            listOfMany.Add(new ViewModel() { ViewModelId = 2, ViewModelString = "value2" });
-            listOfMany.Add(new ViewModel() { ViewModelId = 3, ViewModelString = "value3" });
+            listOfMany.Add(new SampleDomain() {  });
 
             return listOfMany;
-        }
-    }
-
-    /// <summary>
-    /// ISeeBusinessLogic
-    /// </summary>
-    public interface ISeeBusinessLogic
-    {
-        DiagnosticService DiagnosticService { get; }
-        object DataService { get; }
-        void DoSomething();
-        string SeeProperty { get; set; }
-        ViewModel GetOne(string resourceName, string resourceId);
-        IEnumerable<object> GetMany(string resourceName);
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public class DiagnosticService
-    {
-        public void WriteTrace(string traceMessageText)
-        {
-            System.Diagnostics.Trace.TraceInformation(FormatTraceMessage((traceMessageText)));
-        }
-
-        private string FormatTraceMessage(string traceMessageText)
-        {
-            return string.Format("[{0}] - [{1}] -- {2}"
-                , DateTime.Now.ToShortDateString()
-                , DateTime.Now.ToLongTimeString()
-                , traceMessageText);
         }
     }
 }
