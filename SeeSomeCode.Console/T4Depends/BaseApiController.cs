@@ -2,6 +2,8 @@
 using System.Web.Http;
 using System.Net.Http;
 using System.Net;
+using SeeSomeCode.Api;
+using System;
 
 namespace SeeSomeCode.T4Depends
 {
@@ -41,6 +43,18 @@ namespace SeeSomeCode.T4Depends
             };
 
             return hrm;
+        }
+
+        internal HttpResponseMessage MakeResponse(object viewModel)
+        {
+            //var hrm = new HttpResponseMessage(ModelState.IsValid ? HttpStatusCode.Accepted : HttpStatusCode.InternalServerError)
+            //{
+            //    ReasonPhrase = ModelState.IsValid ? "valid" : "not valid"
+            //};
+
+            var response = Request.CreateResponse(ModelState.IsValid ? HttpStatusCode.Accepted : HttpStatusCode.InternalServerError, viewModel);
+
+            return response;
         }
     }
 }

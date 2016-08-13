@@ -56,9 +56,20 @@ namespace SeeSomeCode.T4Depends
         {
             var listOfMany = new List<SampleDomain>();
 
-            listOfMany.Add(new SampleDomain() {  });
+            listOfMany.Add(new SampleDomain() { SampleDomainId = 1, SampleDomainString = "sample domain string" });
+            listOfMany.Add(new SampleDomain() { SampleDomainId = 2, SampleDomainString = "sample domain string" });
+            listOfMany.Add(new SampleDomain() { SampleDomainId = 3, SampleDomainString = "sample domain string" });
 
             return listOfMany;
+        }
+
+        public SampleDomain PostOne(string resourceName, SampleDto postDto)
+        {
+            return new SampleDomain()
+            {
+                SampleDomainId = postDto.DomainId,
+                SampleDomainString = postDto.DomainString
+            };
         }
     }
 }

@@ -161,3 +161,83 @@ SeeSomeCode.exe Information: 0 : [08/12/16] - [9:12:45 AM] -- action executing
 SeeSomeCode.exe Information: 0 : [08/12/16] - [9:12:45 AM] -- action executed
 SeeSomeCode.exe Information: 0 : [08/12/16] - [9:12:53 AM] -- action executing
 SeeSomeCode.exe Information: 0 : [08/12/16] - [9:12:53 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:03:59 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:04:42 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:04:42 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:04:42 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:22:00 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:22:00 AM] -- validation failed
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:22:41 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:22:41 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [08/12/16] - [10:22:41 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/12/16] - [11:16:08 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/12/16] - [11:16:08 AM] -- validation failed
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:16:11 AM] -- starting to listen on localhost:9000
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:17:15 AM] -- action executing
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:17:31 AM] -- validation succeeded
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:18:29 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:01 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:13 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:13 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:13 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:22 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:22 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:21:22 AM] -- action executed
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:21:54 AM] -- starting to listen on localhost:9000
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:22:26 AM] -- action executing
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:22:30 AM] -- validation succeeded
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:23:00 AM] -- action executed
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:23:19 AM] -- action executing
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:23:21 AM] -- validation succeeded
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:23:48 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:38:17 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:38:29 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:38:29 AM] -- validation succeeded
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:38:29 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:39:44 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:39:44 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:39:53 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:39:53 AM] -- action executed
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:43:06 AM] -- starting to listen on localhost:9000
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:43:20 AM] -- action executing
+SeeSomeCode.vshost.exe Information: 0 : [08/13/16] - [7:43:35 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:46:54 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:47:35 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:47:35 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:52:13 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:52:36 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:52:36 AM] -- validation failed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:53:29 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:53:29 AM] -- validation failed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:53:52 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [7:53:52 AM] -- validation failed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:08:05 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:08:16 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:08:16 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:09:27 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:09:34 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:09:35 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:11:52 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:11:52 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:14:37 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:14:45 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:14:45 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:24:17 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:24:28 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:24:28 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:38:08 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:38:18 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:38:18 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:53:06 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:53:15 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [8:53:15 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:00:04 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:00:11 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:00:12 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:14:59 AM] -- starting to listen on localhost:9000
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:15:18 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:15:18 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:15:40 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:15:40 AM] -- action executed
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:15:49 AM] -- action executing
+SeeSomeCode.exe Information: 0 : [08/13/16] - [9:15:49 AM] -- action executed

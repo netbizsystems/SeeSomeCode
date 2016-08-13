@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SeeSomeCode.T4Depends
 {
     public class SampleDto
     {
+        public int DomainId { get; set; }
+
+        [DictionaryElement("FooName")]
+        public string DomainString { get; set; }
     }
 }

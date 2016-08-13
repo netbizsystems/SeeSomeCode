@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+using Newtonsoft.Json.Serialization;
 using SeeSomeCode.T4Depends;
 
 namespace SeeSomeCode
@@ -20,6 +21,9 @@ namespace SeeSomeCode
         public void Configuration( IAppBuilder appBuilder )
         {
             HttpConfiguration config = new HttpConfiguration();
+
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             // see attributes on individual controllers
             config.MapHttpAttributeRoutes(); 

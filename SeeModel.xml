@@ -36,8 +36,8 @@
       all will appear as a collection of requests depending on which standardMethods you have specified.
   -->
   <ModelResources>
-    <ModelResource resourceName="Values" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="ValuesViewModel"></ModelResource>
-    <ModelResource resourceName="Members" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="MembersViewModel"></ModelResource>
+    <ModelResource resourceName="Values" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="ValuesViewModel"/>
+    <ModelResource resourceName="Members" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="MembersViewModel"/>
   </ModelResources>
 
 </AppModel>

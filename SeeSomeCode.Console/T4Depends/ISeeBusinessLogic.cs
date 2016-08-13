@@ -1,7 +1,6 @@
 
 using System.Collections.Generic;
 
-
 namespace SeeSomeCode.T4Depends
 {
     /// <summary>
@@ -15,5 +14,6 @@ namespace SeeSomeCode.T4Depends
         string SeeProperty { get; set; }
         SampleDomain GetOne(string resourceName, string resourceId);
         IEnumerable<SampleDomain> GetMany(string resourceName);
+        SampleDomain PostOne(string resourceName, SampleDto postDto);
     }
 }

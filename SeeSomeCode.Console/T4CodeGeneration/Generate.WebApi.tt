@@ -26,7 +26,7 @@ using SeeSomeCode.T4Depends;
 		var standardMethodsArray = standardMethods.ToUpper().Split(',');
 		var viewModelName = me.Attributes["viewModel"].Value;
 #>
-// GENERATED CODE - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
+// GENERATED CODE (<#= resourceName #>) - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
 namespace <#= nameSpace #>
 {
     /// <summary>
@@ -49,8 +49,9 @@ namespace <#= nameSpace #>
             var dm = BizLogic.GetMany("Values");
 		    foreach (var model in dm)
 		    {
-                viewModelList.Add(new <#= viewModelName #>() {ViewModelId = 1, ViewModelString = "view model string"});
-
+                viewModelList.Add(new <#= viewModelName #>( model.SampleDomainId, "<#= resourceName #>" ) { 
+					ViewModelString = model.SampleDomainString 
+				});
             }
             return viewModelList;
         }
@@ -72,11 +73,10 @@ namespace <#= nameSpace #>
 				return NotFound();
 			}
             // todo: implement automapper for this        
-			return Ok( new <#= viewModelName #>()
+			return Ok( new <#= viewModelName #>( domainModel.SampleDomainId, "<#= resourceName #>" )
 			{
-			    ViewModelId = domainModel.SampleDomainId,
                 ViewModelString = domainModel.SampleDomainString
-			} );
+			});
 		}
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "GETONE") > -1
@@ -91,27 +91,35 @@ namespace <#= nameSpace #>
         public HttpResponseMessage Post( [FromBody] SampleDto postValue )
         {
             //DebugMessage("handling post request in controller");
-
-            //BizLogic.DoSomething();
-
-            return base.MakeResponse();
+            var domainObject = BizLogic.PostOne("", postValue);
+            var viewModel = new <#= viewModelName #>( domainObject.SampleDomainId, "<#= resourceName #>" )
+            {
+                ViewModelString = domainObject.SampleDomainString
+            };
+            return base.MakeResponse( viewModel );
         }
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "POST") > -1
 #>
+
 		/// <summary>
-		/// <#= viewModelName #> - with builtin validation
+		/// <#= viewModelName #> - 
 		/// </summary>
 		/// <remarks>
-		/// Any DictionaryElement attributes seen below will be processed BEFORE the API method is called. If the model fails
-		/// validation, based on the validationmaster, the mothod will not be called at all and a response with error details will be returned.
+		/// Any 
 		/// </remarks>
 		public class <#= viewModelName #>
 		{
-			public int ViewModelId { get; set; }
-
-			[DictionaryElement("FooName")]
+			public int ViewModelId { get; private set; }
 			public string ViewModelString { get; set; }
+			public IList<WebApiLink> Links { get; set; }
+
+			public <#= viewModelName #>(int id, string resourceName)
+			{
+				ViewModelId = id;
+				Links = new List<WebApiLink>();
+                Links.Add(new WebApiLink(id, resourceName));
+			}
 		}
     }
 }

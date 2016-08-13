@@ -101,6 +101,7 @@
     <Compile Include="T4Depends\ValuesController.cs" />
     <Compile Include="SeeStartup.cs" />
     <Compile Include="T4Depends\ValidationMaster.cs" />
+    <Compile Include="T4Depends\WebApiLink.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
