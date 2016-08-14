@@ -28,7 +28,7 @@ namespace SeeSomeCode.T4Depends
             }
             else
             {
-                throw new ApplicationException( $"element [{elementName}] not found in elementDictionary" );
+                ValidationName = string.Empty; //throw new ApplicationException( $"element [{elementName}] not found in elementDictionary" );
             }
         }
 

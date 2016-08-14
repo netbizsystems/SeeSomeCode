@@ -13,7 +13,7 @@ namespace SeeSomeCode.T4Depends
         void DoSomething();
         string SeeProperty { get; set; }
         SampleDomain GetOne(string resourceName, string resourceId);
-        IEnumerable<SampleDomain> GetMany(string resourceName);
+        IEnumerable<SampleDomain> GetMany(string resourceName, string filter);
         SampleDomain PostOne(string resourceName, SampleDto postDto);
     }
 }

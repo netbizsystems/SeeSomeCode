@@ -19,6 +19,16 @@ namespace SeeSomeCode
     {
         static void Main()
         {
+            var bigString = string.Empty;
+            var resourceValue = "someresource:prop1,prop2,prop3".Split(':'); // "someresource:prop1,prop2,prop3"
+            var resourceName = resourceValue[0];
+            var resourceProperties = resourceValue[1].Split(',');
+            foreach (var prop in resourceProperties)
+            {
+                bigString = bigString + string.Format(@" \""{0}\"": \""{1}\""", prop,prop);
+            }
+            bigString = "{" + bigString + "}";
+
             string baseAddress = @"http://localhost:9000/";
             var biz = new SeeBusinessLogic() as ISeeBusinessLogic;
 

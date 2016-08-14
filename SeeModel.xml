@@ -22,9 +22,14 @@
     </LocalizedStrings>
   </LocaleStrings>
 
+  <!--Data elements that require some sort of data validation can be configured here. A ValidationMaster (see the code) defines reusable global
+      properties and associated validation criteria. By associating a data-element seen below with one of these global properties you can have those 
+      validations applied to your property.
+  -->  
   <ModelElements>   
     <ModelElement elementId="DtoId" validationName="ValidationD">SampleValue</ModelElement>
-    <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>   
+    <ModelElement elementId="FooName" validationName="ValidationA">SampleValue</ModelElement>
+    <ModelElement elementId="ResourceModelString" validationName="ValidationA">SampleValue</ModelElement>
   </ModelElements>
 
   <!--Imagine if you have a hundred or more resources. And that you are experiments with many different patterns. 
@@ -36,8 +41,11 @@
       all will appear as a collection of requests depending on which standardMethods you have specified.
   -->
   <ModelResources>
-    <ModelResource resourceName="Values" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="ValuesViewModel"/>
-    <ModelResource resourceName="Members" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" viewModel="MembersViewModel"/>
-  </ModelResources>
+    <ModelResource resourceName="Values" 
+      nameSpace="SeeSomeCode.Api" 
+      standardMethods="GETONE,GETALL,PUT,POST" 
+      resourceModel="ValuesViewModel:ResourceModelString,ResourceModelDate,ResourceModelStatus"
+      />
+    <ModelResource resourceName="Members" nameSpace="SeeSomeCode.Api" standardMethods="GETONE,GETALL,PUT,POST" resourceModel="MembersViewModel"/></ModelResources>
 
 </AppModel>

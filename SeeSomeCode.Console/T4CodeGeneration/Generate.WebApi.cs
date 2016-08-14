@@ -16,23 +16,23 @@ namespace SeeSomeCode.Api
         public ValuesController( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
 		[Route("")]
-		public IEnumerable<ValuesViewModel> GetAll()
+		public IEnumerable<ValuesViewModel> GetAll( [FromUri]string filter = "" )
         {
-            var viewModelList = new List<ValuesViewModel>();
-            var dm = BizLogic.GetMany("Values");
+            var resourceModelList = new List<ValuesViewModel>();
+            var dm = BizLogic.GetMany( "Values", filter);
 		    foreach (var model in dm)
 		    {
-                viewModelList.Add(new ValuesViewModel( model.SampleDomainId, "Values" ) { 
-					ViewModelString = model.SampleDomainString 
+                resourceModelList.Add(new ValuesViewModel( model.SampleDomainId, "Values" ) { 
+					ResourceModelString = model.SampleDomainString 
 				});
             }
-            return viewModelList;
+            return resourceModelList;
         }
 
 		[Route("{id}")]
 		public IHttpActionResult GetSingle(int id)
 		{
-			var domainModel = BizLogic.GetOne( "Values", "123" );
+			var domainModel = BizLogic.GetOne( "Values", id.ToString() );
 			if ( domainModel == null )
 			{
 				return NotFound();
@@ -40,40 +40,61 @@ namespace SeeSomeCode.Api
             // todo: implement automapper for this        
 			return Ok( new ValuesViewModel( domainModel.SampleDomainId, "Values" )
 			{
-                ViewModelString = domainModel.SampleDomainString
+                ResourceModelString = domainModel.SampleDomainString
 			});
 		}
 
 		[Route("")]
-        public HttpResponseMessage Post( [FromBody] SampleDto postValue )
+        public HttpResponseMessage Post( [FromBody] ValuesViewModel postValue )
         {
             //DebugMessage("handling post request in controller");
-            var domainObject = BizLogic.PostOne("", postValue);
-            var viewModel = new ValuesViewModel( domainObject.SampleDomainId, "Values" )
+            var domainObject = BizLogic.PostOne("Values", new SampleDto()
             {
-                ViewModelString = domainObject.SampleDomainString
-            };
-            return base.MakeResponse( viewModel );
+                DomainString = postValue.ResourceModelString
+            });
+			postValue.SetId(domainObject.SampleDomainId, "Values");
+
+            return base.MakeResponse( postValue );
         }
 
 		/// <summary>
-		/// ValuesViewModel - 
+		/// ValuesViewModel - resource (view) model
 		/// </summary>
 		/// <remarks>
 		/// Any 
 		/// </remarks>
 		public class ValuesViewModel
 		{
-			public int ViewModelId { get; private set; }
-			public string ViewModelString { get; set; }
-			public IList<WebApiLink> Links { get; set; }
+			public int ResourceModelId { get; private set; }
+			public IList<WebApiLink> Links { get; private set; }
+			[DictionaryElement("ResourceModelString")]
+			public string ResourceModelString { get; set; }
+			[DictionaryElement("ResourceModelDate")]
+			public string ResourceModelDate { get; set; }
+			[DictionaryElement("ResourceModelStatus")]
+			public string ResourceModelStatus { get; set; }
 
-			public ValuesViewModel(int id, string resourceName)
+			// POSTED model uses this constructor
+            public ValuesViewModel()
+            {
+                //
+            }
+			// when we create the model for a GET...
+			public ValuesViewModel( int id, string resourceName )
 			{
-				ViewModelId = id;
-				Links = new List<WebApiLink>();
-                Links.Add(new WebApiLink(id, resourceName));
+                this.SetId( id, resourceName );
 			}
+
+			// when returning a POSTed model we need to set the key
+		    public void SetId( int id, string resourceName )
+		    {
+                ResourceModelId = id;
+		        if (Links == null)
+		        {
+                    Links = new List<WebApiLink>();
+                }
+                Links.Add( new WebApiLink( id, resourceName ) );
+            }
 		}
     }
 }
@@ -90,23 +111,23 @@ namespace SeeSomeCode.Api
         public MembersController( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
 		[Route("")]
-		public IEnumerable<MembersViewModel> GetAll()
+		public IEnumerable<MembersViewModel> GetAll( [FromUri]string filter = "" )
         {
-            var viewModelList = new List<MembersViewModel>();
-            var dm = BizLogic.GetMany("Values");
+            var resourceModelList = new List<MembersViewModel>();
+            var dm = BizLogic.GetMany( "Members", filter);
 		    foreach (var model in dm)
 		    {
-                viewModelList.Add(new MembersViewModel( model.SampleDomainId, "Members" ) { 
-					ViewModelString = model.SampleDomainString 
+                resourceModelList.Add(new MembersViewModel( model.SampleDomainId, "Members" ) { 
+					ResourceModelString = model.SampleDomainString 
 				});
             }
-            return viewModelList;
+            return resourceModelList;
         }
 
 		[Route("{id}")]
 		public IHttpActionResult GetSingle(int id)
 		{
-			var domainModel = BizLogic.GetOne( "Values", "123" );
+			var domainModel = BizLogic.GetOne( "Members", id.ToString() );
 			if ( domainModel == null )
 			{
 				return NotFound();
@@ -114,40 +135,57 @@ namespace SeeSomeCode.Api
             // todo: implement automapper for this        
 			return Ok( new MembersViewModel( domainModel.SampleDomainId, "Members" )
 			{
-                ViewModelString = domainModel.SampleDomainString
+                ResourceModelString = domainModel.SampleDomainString
 			});
 		}
 
 		[Route("")]
-        public HttpResponseMessage Post( [FromBody] SampleDto postValue )
+        public HttpResponseMessage Post( [FromBody] MembersViewModel postValue )
         {
             //DebugMessage("handling post request in controller");
-            var domainObject = BizLogic.PostOne("", postValue);
-            var viewModel = new MembersViewModel( domainObject.SampleDomainId, "Members" )
+            var domainObject = BizLogic.PostOne("Members", new SampleDto()
             {
-                ViewModelString = domainObject.SampleDomainString
-            };
-            return base.MakeResponse( viewModel );
+                DomainString = postValue.ResourceModelString
+            });
+			postValue.SetId(domainObject.SampleDomainId, "Members");
+
+            return base.MakeResponse( postValue );
         }
 
 		/// <summary>
-		/// MembersViewModel - 
+		/// MembersViewModel - resource (view) model
 		/// </summary>
 		/// <remarks>
 		/// Any 
 		/// </remarks>
 		public class MembersViewModel
 		{
-			public int ViewModelId { get; private set; }
-			public string ViewModelString { get; set; }
-			public IList<WebApiLink> Links { get; set; }
+			public int ResourceModelId { get; private set; }
+			public IList<WebApiLink> Links { get; private set; }
+			[DictionaryElement("ResourceModelString")]
+			public string ResourceModelString { get; set; }
 
-			public MembersViewModel(int id, string resourceName)
+			// POSTED model uses this constructor
+            public MembersViewModel()
+            {
+                //
+            }
+			// when we create the model for a GET...
+			public MembersViewModel( int id, string resourceName )
 			{
-				ViewModelId = id;
-				Links = new List<WebApiLink>();
-                Links.Add(new WebApiLink(id, resourceName));
+                this.SetId( id, resourceName );
 			}
+
+			// when returning a POSTed model we need to set the key
+		    public void SetId( int id, string resourceName )
+		    {
+                ResourceModelId = id;
+		        if (Links == null)
+		        {
+                    Links = new List<WebApiLink>();
+                }
+                Links.Add( new WebApiLink( id, resourceName ) );
+            }
 		}
     }
 }

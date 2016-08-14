@@ -17,7 +17,7 @@ namespace SeeSomeCode.T4Depends
         /// ValidationA - note that each property can have several validation attributes
         /// </summary>
         [MinLength(1, ErrorMessageResourceName = @"validation.errors.ValidationA")]
-        [MaxLength(1, ErrorMessageResourceName = @"validation.errors.ValidationA")]
+        [MaxLength(25, ErrorMessageResourceName = @"validation.errors.ValidationA")]
         public static string ValidationA { get; set; }
 
         [StringLength(2)]

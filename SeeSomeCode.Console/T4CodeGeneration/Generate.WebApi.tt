@@ -9,7 +9,7 @@
 	doc.Load( solutionDir + "SeeModel.xml" );
 
 	string localeIdDefault = doc.DocumentElement.GetAttribute("modelName");
-    var modelElements = doc.DocumentElement.SelectNodes("/AppModel/ModelResources//ModelResource");
+    var modelResources = doc.DocumentElement.SelectNodes("/AppModel/ModelResources//ModelResource");
 #>
 
 using System.Collections.Generic;
@@ -18,13 +18,24 @@ using System.Web.Http;
 using SeeSomeCode.T4Depends;
 
 <#
-    foreach (System.Xml.XmlElement me in modelElements)
+    foreach (System.Xml.XmlElement me in modelResources)
     {
+		var resourceModelValue = me.Attributes["resourceModel"].Value.Split(':'); // "someresource:prop1,prop2,prop3"
+        var resourceModelName = resourceModelValue[0];
+        string[] resourceModelProperties = null;
+        if (resourceModelValue.Length > 1)
+        {
+            resourceModelProperties = resourceModelValue[1].Split(',');
+        }
+        else
+        {
+            resourceModelProperties = "ResourceModelString".Split(',');
+        }
+
 		var resourceName = me.Attributes["resourceName"].Value;
 		var nameSpace = me.Attributes["nameSpace"].Value;
 		var standardMethods = me.Attributes["standardMethods"].Value;
 		var standardMethodsArray = standardMethods.ToUpper().Split(',');
-		var viewModelName = me.Attributes["viewModel"].Value;
 #>
 // GENERATED CODE (<#= resourceName #>) - SEE GENERATE.WEBAPI.TT FOR DISCUSSION
 namespace <#= nameSpace #>
@@ -38,44 +49,44 @@ namespace <#= nameSpace #>
         public <#= resourceName #>Controller( ISeeBusinessLogic bizLogic ) : base( bizLogic ) { }
 
 <#
-	// -------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------getall
     if (Array.IndexOf(standardMethodsArray, "GETALL") > -1)
     {
 #>
 		[Route("")]
-		public IEnumerable<<#= viewModelName #>> GetAll()
+		public IEnumerable<<#= resourceModelName #>> GetAll( [FromUri]string filter = "" )
         {
-            var viewModelList = new List<<#= viewModelName #>>();
-            var dm = BizLogic.GetMany("Values");
+            var resourceModelList = new List<<#= resourceModelName #>>();
+            var dm = BizLogic.GetMany( "<#= resourceName #>", filter);
 		    foreach (var model in dm)
 		    {
-                viewModelList.Add(new <#= viewModelName #>( model.SampleDomainId, "<#= resourceName #>" ) { 
-					ViewModelString = model.SampleDomainString 
+                resourceModelList.Add(new <#= resourceModelName #>( model.SampleDomainId, "<#= resourceName #>" ) { 
+					ResourceModelString = model.SampleDomainString 
 				});
             }
-            return viewModelList;
+            return resourceModelList;
         }
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "GETALL") > -1
 #>
 
 <#
-	// -------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------getone
     if (Array.IndexOf(standardMethodsArray, "GETONE") > -1)
     {
 #>
 		[Route("{id}")]
 		public IHttpActionResult GetSingle(int id)
 		{
-			var domainModel = BizLogic.GetOne( "Values", "123" );
+			var domainModel = BizLogic.GetOne( "<#= resourceName #>", id.ToString() );
 			if ( domainModel == null )
 			{
 				return NotFound();
 			}
             // todo: implement automapper for this        
-			return Ok( new <#= viewModelName #>( domainModel.SampleDomainId, "<#= resourceName #>" )
+			return Ok( new <#= resourceModelName #>( domainModel.SampleDomainId, "<#= resourceName #>" )
 			{
-                ViewModelString = domainModel.SampleDomainString
+                ResourceModelString = domainModel.SampleDomainString
 			});
 		}
 <#
@@ -83,43 +94,69 @@ namespace <#= nameSpace #>
 #>
 
 <#
-	// -------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------post
     if (Array.IndexOf(standardMethodsArray, "POST") > -1)
     {
 #>
 		[Route("")]
-        public HttpResponseMessage Post( [FromBody] SampleDto postValue )
+        public HttpResponseMessage Post( [FromBody] <#= resourceModelName #> postValue )
         {
             //DebugMessage("handling post request in controller");
-            var domainObject = BizLogic.PostOne("", postValue);
-            var viewModel = new <#= viewModelName #>( domainObject.SampleDomainId, "<#= resourceName #>" )
+            var domainObject = BizLogic.PostOne("<#= resourceName #>", new SampleDto()
             {
-                ViewModelString = domainObject.SampleDomainString
-            };
-            return base.MakeResponse( viewModel );
+                DomainString = postValue.ResourceModelString
+            });
+			postValue.SetId(domainObject.SampleDomainId, "<#= resourceName #>");
+
+            return base.MakeResponse( postValue );
         }
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "POST") > -1
+
+	// -------------------------------------------------------------------------------------model class
 #>
 
 		/// <summary>
-		/// <#= viewModelName #> - 
+		/// <#= resourceModelName #> - resource (view) model
 		/// </summary>
 		/// <remarks>
 		/// Any 
 		/// </remarks>
-		public class <#= viewModelName #>
+		public class <#= resourceModelName #>
 		{
-			public int ViewModelId { get; private set; }
-			public string ViewModelString { get; set; }
-			public IList<WebApiLink> Links { get; set; }
+			public int ResourceModelId { get; private set; }
+			public IList<WebApiLink> Links { get; private set; }
+<#
+    foreach ( var resourceProperty in resourceModelProperties )
+    {
+#>
+			[DictionaryElement("<#= resourceProperty #>")]
+			public string <#= resourceProperty #> { get; set; }
+<#
+	}
+#>
 
-			public <#= viewModelName #>(int id, string resourceName)
+			// POSTED model uses this constructor
+            public <#= resourceModelName #>()
+            {
+                //
+            }
+			// when we create the model for a GET...
+			public <#= resourceModelName #>( int id, string resourceName )
 			{
-				ViewModelId = id;
-				Links = new List<WebApiLink>();
-                Links.Add(new WebApiLink(id, resourceName));
+                this.SetId( id, resourceName );
 			}
+
+			// when returning a POSTed model we need to set the key
+		    public void SetId( int id, string resourceName )
+		    {
+                ResourceModelId = id;
+		        if (Links == null)
+		        {
+                    Links = new List<WebApiLink>();
+                }
+                Links.Add( new WebApiLink( id, resourceName ) );
+            }
 		}
     }
 }

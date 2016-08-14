@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace SeeSomeCode.T4Depends
 {
@@ -49,10 +50,10 @@ namespace SeeSomeCode.T4Depends
 
         public SampleDomain GetOne(string resourceName, string resourceId)
         {
-            return new SampleDomain() { SampleDomainId  = 1, SampleDomainString = "sample domain string"};
+            return new SampleDomain() { SampleDomainId  = int.Parse( resourceId ), SampleDomainString = "sample domain string"};
         }
 
-        public IEnumerable<SampleDomain> GetMany(string resourceName)
+        public IEnumerable<SampleDomain> GetMany(string resourceName, string filter = "")
         {
             var listOfMany = new List<SampleDomain>();
 
@@ -67,7 +68,7 @@ namespace SeeSomeCode.T4Depends
         {
             return new SampleDomain()
             {
-                SampleDomainId = postDto.DomainId,
+                SampleDomainId = 99,
                 SampleDomainString = postDto.DomainString
             };
         }

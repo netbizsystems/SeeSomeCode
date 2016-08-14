@@ -12,6 +12,7 @@ namespace SeeSomeCode
         {
 			Elements.Add(new DictionaryElement() { ElementName = "DtoId", ValidationName = "ValidationD" });
 			Elements.Add(new DictionaryElement() { ElementName = "FooName", ValidationName = "ValidationA" });
+			Elements.Add(new DictionaryElement() { ElementName = "ResourceModelString", ValidationName = "ValidationA" });
         }
         public class DictionaryElement
         {
