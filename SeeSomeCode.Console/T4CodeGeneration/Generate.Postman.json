@@ -1,28 +1,28 @@
 ﻿{
-	"id": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3",
+	"id": "c931f7cd-2374-4dd7-9abc-6b71719a56bc",
 	"name": "SeeSomeCode Collection (generated)",
 	"description": "SeeSomeCode generated Postman configuration to provide testing of the API",
 	"order": [],
 	"folders": [
 		{
-			"id": "494b9a56-01a4-41fa-8401-68a11ae49c26",
+			"id": "433435f0-f6a1-4ce9-9161-1155064cbb50",
 			"name": "Values Resource Requests",
 			"description": "",
 			"order": [
-				"f4b850b1-8245-4c0e-83bf-6a7381935499"
-				,"a6742fe6-99d1-4690-8c60-16a80c4e7519"
-				,"86bf45f6-34a8-480a-ac9d-8700519887b7"
+				"ed26d609-3cc0-4eb8-ae53-93e2c2b74141"
+				,"c7357885-1144-4fc2-94aa-998b61864d80"
+				,"c86d551b-1070-4634-9086-aabd5bc5322f"
 			],
 			"owner": "netbiz"
 		}
 		,{
-			"id": "47f358be-8f91-4b53-939c-e66cb8f60525",
+			"id": "6705ffb6-60d5-4221-a2cb-2c6abae9f1c9",
 			"name": "Members Resource Requests",
 			"description": "",
 			"order": [
-				"9fff18ef-0eac-45a9-9b28-facd7f0341bc"
-				,"da513b54-a796-413b-bc2d-9b5f71e1adb2"
-				,"128ae772-6b8f-44c0-98dc-888c5b2aab1e"
+				"27e63c92-1448-4477-8373-5462771a24c3"
+				,"95e6ca35-52cd-4a5c-96db-ad98d846522e"
+				,"63b196cb-7772-4cf6-a542-2648a0d16bb7"
 			],
 			"owner": "netbiz"
 		}
@@ -32,11 +32,11 @@
 	"public": false,
 	"published": false,
 	"requests": [
-		{ "id": "f4b850b1-8245-4c0e-83bf-6a7381935499","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": {},"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3","responses": [],"folder": "494b9a56-01a4-41fa-8401-68a11ae49c26","rawModeData": "{ \"ResourceModelString\": \"ResourceModelString\", \"ResourceModelDate\": \"ResourceModelDate\", \"ResourceModelStatus\": \"ResourceModelStatus\"}"  }
-		,{ "id": "a6742fe6-99d1-4690-8c60-16a80c4e7519","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3","responses": [],"folder": "494b9a56-01a4-41fa-8401-68a11ae49c26" }
-		,{ "id": "86bf45f6-34a8-480a-ac9d-8700519887b7","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values/123","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3","responses": [],"folder": "494b9a56-01a4-41fa-8401-68a11ae49c26" }
-		,{ "id": "9fff18ef-0eac-45a9-9b28-facd7f0341bc","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": {},"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3","responses": [],"folder": "47f358be-8f91-4b53-939c-e66cb8f60525","rawModeData": "{ \"ResourceModelString\": \"ResourceModelString\"}"  }
-		,{ "id": "da513b54-a796-413b-bc2d-9b5f71e1adb2","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3","responses": [],"folder": "47f358be-8f91-4b53-939c-e66cb8f60525" }
-		,{ "id": "128ae772-6b8f-44c0-98dc-888c5b2aab1e","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members/123","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "365e3fa9-4b04-4cca-acc1-3f5d4d0a95e3","responses": [],"folder": "47f358be-8f91-4b53-939c-e66cb8f60525" }
+		{ "id": "ed26d609-3cc0-4eb8-ae53-93e2c2b74141","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": {},"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "c931f7cd-2374-4dd7-9abc-6b71719a56bc","responses": [],"folder": "433435f0-f6a1-4ce9-9161-1155064cbb50","rawModeData": "{ \"ResourceModelString\": \"ResourceModelString\", \"ResourceModelDate\": \"ResourceModelDate\", \"ResourceModelStatus\": \"ResourceModelStatus\"}"  }
+		,{ "id": "c7357885-1144-4fc2-94aa-998b61864d80","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "c931f7cd-2374-4dd7-9abc-6b71719a56bc","responses": [],"folder": "433435f0-f6a1-4ce9-9161-1155064cbb50" }
+		,{ "id": "c86d551b-1070-4634-9086-aabd5bc5322f","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Values/123","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "c931f7cd-2374-4dd7-9abc-6b71719a56bc","responses": [],"folder": "433435f0-f6a1-4ce9-9161-1155064cbb50" }
+		,{ "id": "27e63c92-1448-4477-8373-5462771a24c3","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": {},"method": "POST","data": [],"dataMode": "raw","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "create new resource","description": "","collectionId": "c931f7cd-2374-4dd7-9abc-6b71719a56bc","responses": [],"folder": "6705ffb6-60d5-4221-a2cb-2c6abae9f1c9","rawModeData": "{ \"ResourceModelString\": \"ResourceModelString\"}"  }
+		,{ "id": "95e6ca35-52cd-4a5c-96db-ad98d846522e","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "all resources","description": "","collectionId": "c931f7cd-2374-4dd7-9abc-6b71719a56bc","responses": [],"folder": "6705ffb6-60d5-4221-a2cb-2c6abae9f1c9" }
+		,{ "id": "63b196cb-7772-4cf6-a542-2648a0d16bb7","headers": "Content-Type: application/json\n","url": "http://localhost:9000/api/Members/123","preRequestScript": null,"pathVariables": {},"method": "GET","data": [],"dataMode": "params","version": 2,"tests": null,"currentHelper": "normal","helperAttributes": {},"time": 1470853294388,"name": "single resource","description": "","collectionId": "c931f7cd-2374-4dd7-9abc-6b71719a56bc","responses": [],"folder": "6705ffb6-60d5-4221-a2cb-2c6abae9f1c9" }
 	]
 }

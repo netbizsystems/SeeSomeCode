@@ -10,6 +10,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using Newtonsoft.Json.Serialization;
 using SeeSomeCode.T4Depends;
+using System.Web.Http.Cors;
 
 namespace SeeSomeCode
 {
@@ -30,7 +31,10 @@ namespace SeeSomeCode
 
             // inject (something) into apicontroller
             config.DependencyResolver = new ResolveApiController();
-            
+
+            // Other configuration omitted
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             //filters
             config.Filters.Add( new SeeExceptionFilter() );
             config.Filters.Add( new SeeActionFilter() );

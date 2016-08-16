@@ -1,0 +1,64 @@
+﻿
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".ts" #>
+<# 
+	var solutionDir = this.Host.ResolveAssemblyReference("$(SolutionDir)"); //requires hostspecific=true
+	var doc = new System.Xml.XmlDocument();
+	doc.Load( solutionDir + "SeeModel.xml" );
+
+	string localeIdDefault = doc.DocumentElement.GetAttribute("modelName");
+    var modelResources = doc.DocumentElement.SelectNodes("/AppModel/ModelResources//ModelResource");
+#>
+import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
+
+<#
+    foreach (System.Xml.XmlElement me in modelResources)
+    {
+		var resourceModelValue = me.Attributes["resourceModel"].Value.Split(':'); // "someresource:prop1,prop2,prop3"
+        var resourceModelName = resourceModelValue[0];
+        string[] resourceModelProperties = null;
+        if (resourceModelValue.Length > 1)
+        {
+            resourceModelProperties = resourceModelValue[1].Split(',');
+        }
+        else
+        {
+            resourceModelProperties = "ResourceModelString".Split(',');
+        }
+
+		var resourceName = me.Attributes["resourceName"].Value;
+		var nameSpace = me.Attributes["nameSpace"].Value;
+		var standardMethods = me.Attributes["standardMethods"].Value;
+		var standardMethodsArray = standardMethods.ToUpper().Split(',');
+#>
+import { Hero } from '../models/hero';
+@Injectable()
+export class <#= resourceName #>Service {
+
+  private heroesUrl = 'api/heroes';  // URL to web api
+  constructor(private http: Http) {   }
+
+  private extractData(res: Response) {
+    let body = res.json();
+    return body.data || { }; // remove .data when going at webapi
+  }
+
+  private handleError (error: any) {
+    // In a real world app, we might use a remote logging infrastructure
+    // We'd also dig deeper into the error to get a better message
+    let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error( errMsg ); // log to console instead
+    return Observable.throw(errMsg);
+  }
+
+}
+<#
+	}
+#>
+ 
