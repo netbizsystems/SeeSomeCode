@@ -27,7 +27,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>SeeSomeCode -- Angular 2</h1>\n    <input (click)=\"hello()\" type=\"button\" value=\"hello\">\n    <br><br>\n    <div *ngFor=\"let value of values\" class=\"\">\n      <li>{{value.resourceModelString}}</li>      \n    </div>",
+            template: "\n    <h1>SeeSomeCode -- Angular 2</h1>\n    <input (click)=\"hello()\" type=\"button\" value=\"Get All Values\">\n    <br><br>\n    <div *ngFor=\"let value of values\" class=\"\">\n      <li>{{value.resourceModelString}}</li>      \n    </div>",
             providers: [value_service_1.ValueService]
         }), 
         __metadata('design:paramtypes', [value_service_1.ValueService])

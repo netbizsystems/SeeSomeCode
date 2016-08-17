@@ -7,7 +7,7 @@ import { Value } from './value';
   selector: 'my-app',
   template: `
     <h1>SeeSomeCode -- Angular 2</h1>
-    <input (click)="hello()" type="button" value="hello">
+    <input (click)="hello()" type="button" value="Get All Values">
     <br><br>
     <div *ngFor="let value of values" class="">
       <li>{{value.resourceModelString}}</li>      

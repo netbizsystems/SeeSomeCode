@@ -57,9 +57,9 @@ namespace SeeSomeCode.T4Depends
         {
             var listOfMany = new List<SampleDomain>();
 
-            listOfMany.Add(new SampleDomain() { SampleDomainId = 1, SampleDomainString = "sample domain string" });
-            listOfMany.Add(new SampleDomain() { SampleDomainId = 2, SampleDomainString = "sample domain string" });
-            listOfMany.Add(new SampleDomain() { SampleDomainId = 3, SampleDomainString = "sample domain string" });
+            listOfMany.Add(new SampleDomain() { SampleDomainId = 1, SampleDomainString = "sample values domain string" });
+            listOfMany.Add(new SampleDomain() { SampleDomainId = 2, SampleDomainString = "sample values domain string" });
+            listOfMany.Add(new SampleDomain() { SampleDomainId = 3, SampleDomainString = "sample values domain string" });
 
             return listOfMany;
         }
