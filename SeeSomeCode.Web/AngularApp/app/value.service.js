@@ -11,20 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
+var httpHelper_service_1 = require('./httpHelper.service');
 var ValueService = (function () {
-    function ValueService(http) {
+    function ValueService(http, httpHelper) {
         this.http = http;
+        this.httpHelper = httpHelper;
         this.webApiUrl = '/api/values'; // see full url in app.module.ts
     }
     ValueService.prototype.getValues = function () {
         return this.http.get(this.webApiUrl)
             .toPromise()
-            .then(this.extractData)
+            .then(this.httpHelper.extractData)
             .catch(this.handleError);
-    };
-    ValueService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body || {}; // remove .data when going at webapi
     };
     ValueService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
@@ -32,7 +30,7 @@ var ValueService = (function () {
     };
     ValueService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, httpHelper_service_1.HttpHelperService])
     ], ValueService);
     return ValueService;
 }());

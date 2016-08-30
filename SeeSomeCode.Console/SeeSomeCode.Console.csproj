@@ -106,9 +106,9 @@
     <Compile Include="T4Depends\SampleDto.cs" />
     <Compile Include="T4Depends\SeeBusinessLogic.cs" />
     <Compile Include="T4Depends\BaseApiController.cs" />
-    <Compile Include="T4Depends\ValuesController.cs" />
     <Compile Include="SeeStartup.cs" />
     <Compile Include="T4Depends\ValidationMaster.cs" />
+    <Compile Include="T4Depends\ValuesController.cs" />
     <Compile Include="T4Depends\WebApiLink.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,12 +120,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Generate.Postman.tt</DependentUpon>
     </None>
-    <None Include="T4Depends\SeeSomeCode.trace" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="T4CodeGeneration\angular2.webapi.tt">
+    <Content Include="T4CodeGeneration\Generate.Angular.webapi.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>angular2.webapi.ts</LastGenOutput>
+      <LastGenOutput>Generate.Angular.webapi.ts</LastGenOutput>
     </Content>
     <Content Include="T4CodeGeneration\Generate.ElementDictionary.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -144,10 +143,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="T4CodeGeneration\angular2.webapi.ts">
+    <TypeScriptCompile Include="T4CodeGeneration\Generate.Angular.webapi.ts">
+      <DependentUpon>Generate.Angular.webapi.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>angular2.webapi.tt</DependentUpon>
     </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

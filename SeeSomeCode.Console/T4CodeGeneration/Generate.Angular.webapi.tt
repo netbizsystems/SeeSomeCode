@@ -37,12 +37,18 @@ import 'rxjs/add/operator/toPromise';
 		var standardMethods = me.Attributes["standardMethods"].Value;
 		var standardMethodsArray = standardMethods.ToUpper().Split(',');
 #>
-import { Hero } from '../models/hero';
 @Injectable()
 export class <#= resourceName #>Service {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private webApiUrl = '/api/<#= resourceName #>';  // see full url in app.module.ts
   constructor(private http: Http) {   }
+
+    get<#= resourceName #>() {
+		return this.http.get(this.webApiUrl)
+		  .toPromise()
+		  .then(this.extractData)
+		  .catch(this.handleError);
+  }
 
   private extractData(res: Response) {
     let body = res.json();
@@ -58,6 +64,7 @@ export class <#= resourceName #>Service {
   }
 
 }
+
 <#
 	}
 #>

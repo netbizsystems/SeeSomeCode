@@ -10,10 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var value_service_1 = require('./value.service');
+var httpHelper_service_1 = require('./httpHelper.service');
 var AppComponent = (function () {
     function AppComponent(ValueService) {
         this.ValueService = ValueService;
-        //called first time before the ngOnInit()
+        //called first time before the ngOnInit()  
     }
     AppComponent.prototype.ngOnInit = function () { };
     AppComponent.prototype.hello = function () {
@@ -28,7 +29,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             template: "\n    <h1>SeeSomeCode -- Angular 2</h1>\n    <input (click)=\"hello()\" type=\"button\" value=\"Get All Values\">\n    <br><br>\n    <div *ngFor=\"let value of values\" class=\"\">\n      <li>{{value.resourceModelString}}</li>      \n    </div>",
-            providers: [value_service_1.ValueService]
+            providers: [value_service_1.ValueService, httpHelper_service_1.HttpHelperService]
         }), 
         __metadata('design:paramtypes', [value_service_1.ValueService])
     ], AppComponent);

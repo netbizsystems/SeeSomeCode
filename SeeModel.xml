@@ -32,7 +32,7 @@
     <ModelElement elementId="ResourceModelString" validationName="ValidationA">SampleValue</ModelElement>
   </ModelElements>
 
-  <!--Imagine if you have a hundred or more resources. And that you are experiments with many different patterns. 
+  <!--Imagine if you have a hundred or more REST resources. And that you are experiments with many different patterns. 
       Simply adjust your TT template to reflect the pattern that yo uwant to follow and regenerate all. Each API controller 
       is a partial class of its own which means that you can add other methods in a side-by-side partial class that 
       won't get stepped on during regeneration.

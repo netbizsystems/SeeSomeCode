@@ -21,7 +21,6 @@
 	"order": [],
 	"folders": [
 <#
-	var wtf = new List<string>();
 	var postmanRequests = new List<string>();
 	var comma0 = "";
 

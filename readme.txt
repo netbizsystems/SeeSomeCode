@@ -1,5 +1,5 @@
 
-- From the Visual Studio menu, click Build.Transform All T4 Templates to generate assets from the SeeModel.xml model.
+- From the Visual Studio menu, click "Build.Transform All T4 Templates" to generate assets from the SeeModel.xml model.
 - Start the SeeSomeCode.Console application
 - Set the start page on the SeeSomeCode.Web project to AngularApp/index.html
 - Start the SeeSomeCode.Web application

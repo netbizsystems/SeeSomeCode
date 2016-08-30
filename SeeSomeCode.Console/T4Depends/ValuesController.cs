@@ -1,22 +1,17 @@
 ﻿
 using System.Diagnostics;
 
-namespace SeeSomeCode
+namespace SeeSomeCode.Api
 {
     public partial class ValuesController
     {
-        /// <summary>
-        /// DebugMessage - will not generate any bits in the assembly
-        /// </summary>
-        partial void DebugMessage( string debugMessage);
-
 #if DEBUG
         /// <summary>
         /// DebugMessage - in debug mode it will generate those bits
         /// </summary>
         partial void DebugMessage( string debugMessage)
         {
-            //base.BizLogic.DiagnosticService.WriteTrace( debugMessage );
+            base.BizLogic.DiagnosticService.WriteTrace( debugMessage );
         }
     }
 #endif

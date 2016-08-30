@@ -47,7 +47,7 @@ namespace SeeSomeCode.Api
 		[Route("")]
         public HttpResponseMessage Post( [FromBody] ValuesViewModel postValue )
         {
-            //DebugMessage("handling post request in controller");
+            DebugMessage("handling post request in controller");
             var domainObject = BizLogic.PostOne("Values", new SampleDto()
             {
                 DomainString = postValue.ResourceModelString
@@ -56,6 +56,12 @@ namespace SeeSomeCode.Api
 
             return base.MakeResponse( postValue );
         }
+
+		/// <summary>
+		/// DebugMessage - will not generate any bits in the assembly
+		/// </summary>
+		partial void DebugMessage( string debugMessage);
+
 
 		/// <summary>
 		/// ValuesViewModel - resource (view) model
@@ -142,7 +148,7 @@ namespace SeeSomeCode.Api
 		[Route("")]
         public HttpResponseMessage Post( [FromBody] MembersViewModel postValue )
         {
-            //DebugMessage("handling post request in controller");
+            DebugMessage("handling post request in controller");
             var domainObject = BizLogic.PostOne("Members", new SampleDto()
             {
                 DomainString = postValue.ResourceModelString
@@ -151,6 +157,12 @@ namespace SeeSomeCode.Api
 
             return base.MakeResponse( postValue );
         }
+
+		/// <summary>
+		/// DebugMessage - will not generate any bits in the assembly
+		/// </summary>
+		partial void DebugMessage( string debugMessage);
+
 
 		/// <summary>
 		/// MembersViewModel - resource (view) model

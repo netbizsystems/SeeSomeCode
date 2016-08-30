@@ -73,9 +73,11 @@
     <Content Include="AngularApp\app\main.js" />
     <Content Include="AngularApp\app\value.js" />
     <Content Include="AngularApp\app\value.service.js" />
+    <Content Include="AngularApp\app\wtf.service.js" />
     <Content Include="AngularApp\index.html" />
     <Content Include="AngularApp\styles.css" />
     <Content Include="AngularApp\systemjs.config.js" />
+    <Content Include="favicon.ico" />
     <Content Include="packages.config" />
     <Content Include="AngularApp\app\app.component.js.map" />
     <Content Include="AngularApp\app\app.module.js.map" />
@@ -85,6 +87,7 @@
     <Content Include="AngularApp\typings.json" />
     <Content Include="AngularApp\app\value.service.js.map" />
     <Content Include="AngularApp\app\value.js.map" />
+    <Content Include="AngularApp\app\wtf.service.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -104,6 +107,7 @@
     <TypeScriptCompile Include="AngularApp\app\main.ts" />
     <TypeScriptCompile Include="AngularApp\app\value.service.ts" />
     <TypeScriptCompile Include="AngularApp\app\value.ts" />
+    <TypeScriptCompile Include="AngularApp\app\wtf.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

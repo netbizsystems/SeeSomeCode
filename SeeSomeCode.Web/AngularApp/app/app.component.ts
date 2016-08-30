@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ValueService } from './value.service';
+import { HttpHelperService } from './httpHelper.service';
 import { Value } from './value';
 
 @Component({
@@ -12,7 +13,7 @@ import { Value } from './value';
     <div *ngFor="let value of values" class="">
       <li>{{value.resourceModelString}}</li>      
     </div>`,
-  providers: [ValueService]
+  providers: [ValueService, HttpHelperService]
 })
 export class AppComponent implements OnInit {
 
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   error: any;  
 
   constructor( private ValueService: ValueService ) {
-     //called first time before the ngOnInit()
+     //called first time before the ngOnInit()  
   }
   ngOnInit() {  }
 

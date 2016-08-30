@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { BaseRequestOptions, RequestOptions, RequestOptionsArgs} from '@angular/http';
 
+//import { HttpHelperService } from './httpHelper.service';
 import { AppComponent }  from './app.component';
 
 class CustomRequestOptions extends BaseRequestOptions {

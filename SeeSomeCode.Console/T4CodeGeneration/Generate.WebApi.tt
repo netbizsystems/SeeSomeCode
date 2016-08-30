@@ -110,6 +110,12 @@ namespace <#= nameSpace #>
 
             return base.MakeResponse( postValue );
         }
+
+		/// <summary>
+		/// DebugMessage - will not generate any bits in the assembly
+		/// </summary>
+		partial void DebugMessage( string debugMessage);
+
 <#
 	} // end of Array.IndexOf(standardMethodsArray, "POST") > -1
 
