@@ -8,9 +8,9 @@
   var map = {
     'app':                        'app', // 'dist',
 
-    '@angular': 'https://npmcdn.com/@angular',
-    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
-    'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
+    '@angular': 'https://unpkg.com/@angular',
+    'angular2-in-memory-web-api': 'https://unpkg.com/angular2-in-memory-web-api',
+    'rxjs': 'https://unpkg.com/rxjs@5.0.0-beta.6',
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
