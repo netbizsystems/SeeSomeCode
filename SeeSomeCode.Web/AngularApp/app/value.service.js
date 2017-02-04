@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-require('rxjs/add/operator/toPromise');
-var httpHelper_service_1 = require('./httpHelper.service');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/toPromise");
+var httpHelper_service_1 = require("./httpHelper.service");
 var ValueService = (function () {
     function ValueService(http, httpHelper) {
         this.http = http;
@@ -28,11 +28,11 @@ var ValueService = (function () {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
-    ValueService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, httpHelper_service_1.HttpHelperService])
-    ], ValueService);
     return ValueService;
 }());
+ValueService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http, httpHelper_service_1.HttpHelperService])
+], ValueService);
 exports.ValueService = ValueService;
 //# sourceMappingURL=value.service.js.map

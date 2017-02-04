@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,26 +68,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AngularApp\app\app.component.js" />
-    <Content Include="AngularApp\app\app.module.js" />
-    <Content Include="AngularApp\app\main.js" />
-    <Content Include="AngularApp\app\value.js" />
-    <Content Include="AngularApp\app\value.service.js" />
-    <Content Include="AngularApp\app\wtf.service.js" />
     <Content Include="AngularApp\index.html" />
     <Content Include="AngularApp\styles.css" />
     <Content Include="AngularApp\systemjs.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="packages.config" />
-    <Content Include="AngularApp\app\app.component.js.map" />
-    <Content Include="AngularApp\app\app.module.js.map" />
-    <Content Include="AngularApp\app\main.js.map" />
     <Content Include="AngularApp\package.json" />
     <Content Include="AngularApp\tsconfig.json" />
     <Content Include="AngularApp\typings.json" />
-    <Content Include="AngularApp\app\value.service.js.map" />
-    <Content Include="AngularApp\app\value.js.map" />
-    <Content Include="AngularApp\app\wtf.service.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -102,16 +90,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="AngularApp\app\app.component.ts" />
-    <TypeScriptCompile Include="AngularApp\app\app.module.ts" />
-    <TypeScriptCompile Include="AngularApp\app\main.ts" />
-    <TypeScriptCompile Include="AngularApp\app\value.service.ts" />
-    <TypeScriptCompile Include="AngularApp\app\value.ts" />
-    <TypeScriptCompile Include="AngularApp\app\wtf.service.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AngularApp\app\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

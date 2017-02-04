@@ -1,59 +1,41 @@
-/**
- * System configuration for Angular 2 samples
- * Adjust as necessary for your application needs.
- */
-(function(global) {
 
-  // map tells the System loader where to look for things
-  var map = {
-    'app':                        'app', // 'dist',
+(function (global) {
+    System.config({
+        paths: {
+            // paths serve as alias
+            'npm:': 'node_modules/',
+            'npmcdn:': 'https://unpkg.com/',
+        },
+        // map tells the System loader where to look for things
+        map: {
+            //
+            'moment': 'npmcdn:moment@2.14.1/moment.js',
 
-    '@angular': 'https://npmcdn.com/@angular',
-    'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api',
-    'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6',
-  };
+            //
+            '@ng-bootstrap/ng-bootstrap': 'npmcdn:@ng-bootstrap/ng-bootstrap@1.0.0-alpha.13/bundles/ng-bootstrap.js',
 
-  // packages tells the System loader how to load when no filename and/or no extension
-  var packages = {
-    'app':                        { main: 'main.js',  defaultExtension: 'js' },
-    'rxjs':                       { defaultExtension: 'js' },
-    'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-  };
+            // our app is within the app folder
+            'app': '/angularapp/app',
 
-  var ngPackageNames = [
-    'common',
-    'compiler',
-    'core',
-    'forms',
-    'http',
-    'platform-browser',
-    'platform-browser-dynamic',
-    'router',
-    'router-deprecated',
-    'upgrade',
-  ];
+            // angular bundles
+            '@angular/core': 'npmcdn:@angular/core/bundles/core.umd.js',
+            '@angular/common': 'npmcdn:@angular/common/bundles/common.umd.js',
+            '@angular/compiler': 'npmcdn:@angular/compiler/bundles/compiler.umd.js',
+            '@angular/platform-browser': 'npmcdn:@angular/platform-browser/bundles/platform-browser.umd.js',
+            '@angular/platform-browser-dynamic': 'npmcdn:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+            '@angular/http': 'npmcdn:@angular/http/bundles/http.umd.js',
+            '@angular/router': 'npmcdn:@angular/router/bundles/router.umd.js',
+            '@angular/forms': 'npmcdn:@angular/forms/bundles/forms.umd.js',
 
-  // Individual files (~300 requests):
-  function packIndex(pkgName) {
-    packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
-  }
-
-  // Bundled (~40 requests):
-  function packUmd(pkgName) {
-    packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
-  }
-
-  // Most environments should use UMD; some (Karma) need the individual index files
-  var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
-
-  // Add package entries for angular packages
-  ngPackageNames.forEach(setPackageConfig);
-
-  var config = {
-    map: map,
-    packages: packages
-  };
-
-  System.config(config);
-
+            // other libraries
+            'rxjs': 'npmcdn:rxjs',
+            'angular2-in-memory-web-api': 'npmcdn:angular2-in-memory-web-api'
+        },
+        // packages tells the System loader how to load when no filename and/or no extension
+        packages: {
+            app: { main: './main.js', defaultExtension: 'js' },
+            rxjs: { defaultExtension: 'js' },
+            'angular2-in-memory-web-api': { main: './index.js', defaultExtension: 'js' }
+        }
+    });
 })(this);

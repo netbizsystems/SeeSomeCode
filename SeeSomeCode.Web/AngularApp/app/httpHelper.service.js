@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-require('rxjs/add/operator/toPromise');
+var core_1 = require("@angular/core");
+require("rxjs/add/operator/toPromise");
 var HttpHelperService = (function () {
     function HttpHelperService() {
     }
@@ -17,11 +17,11 @@ var HttpHelperService = (function () {
         var body = res.json();
         return body || {}; // remove .data when going at webapi
     };
-    HttpHelperService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], HttpHelperService);
     return HttpHelperService;
 }());
+HttpHelperService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], HttpHelperService);
 exports.HttpHelperService = HttpHelperService;
 //# sourceMappingURL=httpHelper.service.js.map

@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSomeCode.Console", "SeeSomeCode.Console\SeeSomeCode.Console.csproj", "{6B314E94-246F-4C0A-B061-973B11F7CC63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSomeCode.Web", "SeeSomeCode.Web\SeeSomeCode.Web.csproj", "{27288361-4258-4E79-BC16-4CE46459BFC0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6B314E94-246F-4C0A-B061-973B11F7CC63} = {6B314E94-246F-4C0A-B061-973B11F7CC63}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
